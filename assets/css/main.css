@@ -1607,6 +1607,204 @@ button,
     pointer-events: none;
     opacity: 0.25; }
 
+
+    /* Spotify Button Base */
+.spotify-button {
+  background-color: transparent;
+  border-radius: 0.375em;
+  border: 0;
+  box-shadow: inset 0 0 0 2px #1DB954; /* Spotify green border */
+  color: #1DB954 !important; /* Spotify green text */
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Roboto Slab", serif;
+  font-size: 0.8em; /* Default font size */
+  font-weight: 700;
+  height: 3.5em; /* Default height */
+  letter-spacing: 0.075em;
+  line-height: 3.5em; /* Match height for vertical alignment */
+  padding: 0 2.25em; /* Default padding */
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.spotify-button:hover {
+  background-color: #1DB954; /* Spotify green on hover */
+  color: #ffffff !important; /* White text on hover */
+}
+
+.spotify-button:active {
+  background-color: #17943d; /* Slightly darker green on active */
+}
+
+/* Spotify Button Sizes */
+.spotify-button.small {
+  font-size: 0.6em; /* Smaller font size */
+  height: 2.5em; /* Smaller height */
+  line-height: 2.5em; /* Match height for alignment */
+  padding: 0 1.5em; /* Reduced padding */
+}
+
+.spotify-button.large {
+  font-size: 1em; /* Larger font size */
+  height: 3.65em; /* Larger height */
+  line-height: 3.65em; /* Match height for alignment */
+  padding: 0 2.5em; /* Slightly increased padding */
+}
+
+.spotify-button.fit {
+  width: 100%; /* Full-width button */
+}
+
+.spotify-button.icon:before {
+  margin-right: 0.5em; /* Add spacing before the icon */
+}
+
+/* Disabled Spotify Button */
+.spotify-button.disabled,
+.spotify-button:disabled {
+  pointer-events: none;
+  opacity: 0.25; /* Reduced opacity for disabled state */
+}
+
+/* Medium Button Base */
+.medium-button {
+  background-color: transparent;
+  border-radius: 0.375em;
+  border: 0;
+  box-shadow: inset 0 0 0 2px #000000; /* Medium black border */
+  color: #000000 !important; /* Medium black text */
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Roboto Slab", serif;
+  font-size: 0.8em; /* Default font size */
+  font-weight: 700;
+  height: 3.5em; /* Default height */
+  letter-spacing: 0.075em;
+  line-height: 3.5em; /* Match height for vertical alignment */
+  padding: 0 2.25em; /* Default padding */
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.medium-button:hover {
+  background-color: #000000; /* Medium black on hover */
+  color: #ffffff !important; /* White text on hover */
+}
+
+.medium-button:active {
+  background-color: #333333; /* Slightly darker black on active */
+}
+
+/* Medium Button Sizes */
+.medium-button.small {
+  font-size: 0.6em; /* Smaller font size */
+  height: 2.5em; /* Smaller height */
+  line-height: 2.5em; /* Match height for alignment */
+  padding: 0 1.5em; /* Reduced padding */
+}
+
+.medium-button.large {
+  font-size: 1em; /* Larger font size */
+  height: 3.65em; /* Larger height */
+  line-height: 3.65em; /* Match height for alignment */
+  padding: 0 2.5em; /* Slightly increased padding */
+}
+
+.medium-button.fit {
+  width: 100%; /* Full-width button */
+}
+
+.medium-button.icon:before {
+  margin-right: 0.5em; /* Add spacing before the icon */
+}
+
+/* Disabled Medium Button */
+.medium-button.disabled,
+.medium-button:disabled {
+  pointer-events: none;
+  opacity: 0.25; /* Reduced opacity for disabled state */
+}
+
+
+/* YouTube Button Base */
+.youtube-button {
+  background-color: transparent;
+  border-radius: 0.375em;
+  border: 0;
+  box-shadow: inset 0 0 0 2px #FF0000; /* YouTube red border */
+  color: #FF0000 !important; /* YouTube red text */
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Roboto Slab", serif;
+  font-size: 0.8em; /* Default font size */
+  font-weight: 700;
+  height: 3.5em; /* Default height */
+  letter-spacing: 0.075em;
+  line-height: 3.5em; /* Match height for vertical alignment */
+  padding: 0 2.25em; /* Default padding */
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.youtube-button:hover {
+  background-color: #FF0000; /* YouTube red on hover */
+  color: #ffffff !important; /* White text on hover */
+}
+
+.youtube-button:active {
+  background-color: #CC0000; /* Slightly darker red on active */
+}
+
+/* YouTube Button Sizes */
+.youtube-button.small {
+  font-size: 0.6em; /* Smaller font size */
+  height: 2.5em; /* Smaller height */
+  line-height: 2.5em; /* Match height for alignment */
+  padding: 0 1.5em; /* Reduced padding */
+}
+
+.youtube-button.large {
+  font-size: 1em; /* Larger font size */
+  height: 3.65em; /* Larger height */
+  line-height: 3.65em; /* Match height for alignment */
+  padding: 0 2.5em; /* Slightly increased padding */
+}
+
+.youtube-button.fit {
+  width: 100%; /* Full-width button */
+}
+
+.youtube-button.icon:before {
+  margin-right: 0.5em; /* Add spacing before the icon */
+}
+
+/* Disabled YouTube Button */
+.youtube-button.disabled,
+.youtube-button:disabled {
+  pointer-events: none;
+  opacity: 0.25; /* Reduced opacity for disabled state */
+}
+
+
 /* Mini Posts */
 .mini-posts article {
   border-top: solid 1px rgba(210, 215, 217, 0.75);
