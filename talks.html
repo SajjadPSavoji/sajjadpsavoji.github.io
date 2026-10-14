@@ -1,101 +1,275 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Talks — Sajjad P. Savoji</title>
-	<meta name="description" content="Talks and paper presentations by Sajjad Pakdamansavoji." />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" />
-	<link rel="stylesheet" href="assets/css/site.css" />
-</head>
-<body>
-	<a class="skip" href="#main">Skip to content</a>
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Sajjad P. Savoji</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/custom.css" />
+	</head>
+	<body class="is-preload">
 
-	<header class="masthead">
-		<div class="wrap masthead-row">
-			<a class="wordmark" href="index.html">Sajjad P. Savoji</a>
-			<nav class="nav" aria-label="Main">
-				<a href="index.html">About</a>
-				<a href="publications.html">Publications</a>
-				<a href="projects.html">Projects</a>
-				<a href="talks.html" aria-current="page">Talks</a>
-				<a href="tutorials.html">Tutorials</a>
-				<a href="contact.html">Contact</a>
-			</nav>
-		</div>
-	</header>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-	<main id="main">
-	<section class="wrap" style="padding-block:3rem 0">
-		<h1>Talks</h1>
-		<p class="prose" style="margin-top:1rem">Conference talks, paper walkthroughs and internal presentations.</p>
-	</section>
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<!-- Header -->
+								<header id="header">
+									<!-- <a href="about.html" class="logo">About |</a>
+									<a href="about.html" class="logo">About |</a> -->
+									<div class="navig">
+										<a href="index.html" class="navig">    About </a>|
+										<a href="projects.html" class="navig">Projects </a>|
+										<a href="talks.html" class="navig">Talks </a>|
+										<a href="tutorials.html" class="navig">Tutorials </a>|
+										<a href="publications.html" class="navig">Publication </a>|
+										<a href="contact.html" class="navig">Contact </a>
 
-	<section class="section">
-		<div class="wrap">
-			<ul class="entries">
-			<li>
-				<h3>WALDO: Where Unseen Model-based 6D Pose Estimation Meets Occlusion - WACV 2026</h3>
-				<p>This paper improves model-based 6D object pose estimation under occlusion by introducing visibility-focused sampling, multi-hypothesis inference, iterative refinement, and occlusion-aware training, along with a new visibility-weighted evaluation metric. The approach achieves higher accuracy and ~3× faster inference on benchmark datasets compared to prior multi-stage pipelines.</p>
-				<div class="card-links"><a href="https://www.youtube.com/watch?v=0dVynYdOA4I">Watch</a></div>
-			</li>
-			<li>
-				<h3>Structured QA Generation with Large Language Models - Vector Intern Talks</h3>
-				<p>In this presentation, we'll dive into the exciting world of Large Language Models (LLMs) and how to make them excel in constrained generation tasks. We've put together simple, yet powerful guidelines on prompt engineering to improve structure generation. Plus, we'll compare open-source models with their commercial peers to see which ones are best suited for this task. Get ready for a straightforward, insightful session on the latest in AI and language processing!</p>
-				<div class="card-links"><a href="https://www.youtube.com/watch?v=NeKjdnt4Afs">Watch</a></div>
-			</li>
-			<li>
-				<h3>Digital Booklet: An Innovative Approach to Showcasing Open-Source Projects - Vector Intern Talks</h3>
-				<p>Experience the future of open-source project presentation with Digital Booklet, a ground-breaking platform that reimagines how we showcase and publish open-source projects, workshops, and tutorials. Departing from traditional git-repository templates focused solely on reproducibility, Digital Booklet centers its approach on enhancing reusability and user experience. Leveraging the power of CI/CD, Jupyter book, and online computational resources like Google Colab, this project opens the doors to open-source demos for a diverse audience, spanning various levels of technical proficiency. Whether you're a seasoned pro or a newcomer, Digital Booklet is your gateway to a new era of innovation and accessibility in the open-source community.</p>
-				<div class="card-links"><a href="https://www.youtube.com/watch?v=YP1fPyFQT9o">Watch</a></div>
-			</li>
-			<li>
-				<h3>Active Vision for Early Recognition of Human Actions</h3>
-				<p>We propose a method for early recognition of human actions, one that can take advantages of multiple cameras while satisfying the constraints due to limited communication bandwidth and processing power. Our method considers multiple cameras, and at each time step, it will decide the best camera to use so that a confident recognition decision can be reached as soon as possible. We formulate the camera selection problem as a sequential decision process, and learn a view selection policy based on reinforcement learning.</p>
-				<div class="card-links"><a href="https://www.youtube.com/watch?v=Sdc8hIYkIXo">Watch</a></div>
-			</li>
-			<li>
-				<h3>ResNest: Split Attention Networks</h3>
-				<p>It is well known that featuremap attention and multi-path representation are important for visual recognition. In this paper, we present a modularized architecture, which applies the channel-wise attention on different network branches to leverage their success in capturing cross-feature interactions and learning diverse representations. Our design results in a simple and unified computation block, which can be parameterized using only a few variables. Our model, named ResNeSt, outperforms EfficientNet in accuracy and latency trade-off on image classification.</p>
-				<div class="card-links"><a href="https://www.youtube.com/watch?v=4QBrRNPiKEM">Watch</a></div>
-			</li>
-			<li>
-				<h3>Chained Tracker</h3>
-				<p>Existing Multiple-Object Tracking (MOT) methods either follow the tracking-by-detection paradigm to conduct object detection, feature extraction and data association separately, or have two of the three subtasks integrated to form a partially end-to-end solution. Going beyond these sub-optimal frameworks, we propose a simple online model named Chained-Tracker (CTracker), which naturally integrates all the three subtasks into an end-to-end solution (the first as far as we know).</p>
-				<div class="card-links"><a href="https://www.youtube.com/watch?v=_baxF-9lBrE">Watch</a></div>
-			</li>
-			<li>
-				<h3>ISSUM Workshop</h3>
-				<p>I presented a part of my master thesis at the ISSUM Workshop. Some of the details have been omitted for confidentiality. Will probably post a complete version once our publication is public.</p>
-				<div class="card-links"><a href="https://www.youtube.com/watch?v=6jRdesbrFqE">Watch</a></div>
-			</li>
-			<li>
-				<h3>Trackformer</h3>
-				<p>A through description into the first tracker following a tracking-by-attention paradigm. In this video the model Trackformer and its corresponding paper Multiple Object Tracking with Transformers are explained.</p>
-				<div class="card-links"><a href="https://www.youtube.com/watch?v=w5Mj5ONl8n0">Watch</a></div>
-			</li>
-			<li>
-				<h3>ISSUM Workshop Closing Event</h3>
-				<p>I presented a part of my master thesis at the ISSUM Workshop Closing Event. Some of the details have been omitted for confidentiality. Will probably post a complete version once our publication is public.</p>
-				<div class="card-links"><a href="https://www.youtube.com/watch?v=MsL-EtDlU3c">Watch</a></div>
-			</li>
-			</ul>
-		</div>
-	</section>
-	</main>
 
-	<footer class="site-footer">
-		<div class="wrap footer-row">
-			<p>&copy; 2026 Sajjad Pakdamansavoji</p>
-			<ul class="social">
-				<li><a href="https://github.com/SajjadPSavoji">GitHub</a></li>
-				<li><a href="https://scholar.google.com/citations?user=DZzLzNwAAAAJ">Google Scholar</a></li>
-				<li><a href="https://www.linkedin.com/in/sajjad-pakdamansavoji-9672221b6/">LinkedIn</a></li>
-				<li><a href="mailto:sj.pakdaman.edu@gmail.com">Email</a></li>
-			</ul>
-		</div>
-	</footer>
-</body>
+
+									</div>
+
+									<ul class="icons">
+										<li><a href="https://www.linkedin.com/in/sajjad-pakdamansavoji-9672221b6/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+										<li><a href="https://github.com/SajjadPSavoji" class="icon brands fa-github"><span class="label">Github</span></a></li>
+										<li><a href="https://twitter.com/saavoji" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="https://www.facebook.com/profile.php?id=100075908712362" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<!-- <li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li> -->
+										<li><a href="https://www.instagram.com/sajad_pkn" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="mailto:savoji@yorku.ca" class="icon solic fa-envelope"><span class="label">email</span></a></li>
+										<!-- <li class="icon solid fa-envelope"><a href="mailto: savoji@yorku.ca"> </a></li> -->
+										<!-- <li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li> -->
+									</ul>
+								</header>
+
+							<!-- Section -->
+								<section>
+									<div class="posts">
+										<article>
+											<iframe width="100%" height="auto"
+											src="https://www.youtube.com/embed/0dVynYdOA4I">
+											</iframe>
+											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
+											<h3>WALDO: Where Unseen Model-based 6D Pose Estimation Meets Occlusion -  WACV 2026</h3>
+											<p align="justify">
+												This paper improves model-based 6D object pose estimation under occlusion by introducing visibility-focused sampling, multi-hypothesis inference, iterative refinement, and occlusion-aware training, along with a new visibility-weighted evaluation metric. The approach achieves higher accuracy and ~3× faster inference on benchmark datasets compared to prior multi-stage pipelines. <ul class="actions">
+												<li><a href="#" class="button small">More</a></li>
+											</ul>
+										</article>
+										<article>
+											<iframe width="100%" height="auto"
+											src="https://www.youtube.com/embed/NeKjdnt4Afs">
+											</iframe>
+											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
+											<h3>Structured QA Generation with Large Language Models - Vector Intern Talks</h3>
+											<p align="justify">
+												In this presentation, we'll dive into the exciting world of Large Language Models (LLMs) and how to make them excel in constrained generation tasks. We've put together simple, yet powerful guidelines on prompt engineering to improve structure generation. Plus, we'll compare open-source models with their commercial peers to see which ones are best suited for this task. Get ready for a straightforward, insightful session on the latest in AI and language processing!											<ul class="actions">
+												<li><a href="#" class="button small">More</a></li>
+											</ul>
+										</article>
+										<article>
+											<iframe width="100%" height="auto"
+											src="https://www.youtube.com/embed/YP1fPyFQT9o">
+											</iframe>
+											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
+											<h3>Digital Booklet: An Innovative Approach to Showcasing Open-Source Projects - Vector Intern Talks</h3>
+											<p align="justify">
+												Experience the future of open-source project presentation with Digital Booklet, a ground-breaking platform that reimagines how we showcase and publish open-source projects, workshops, and tutorials. Departing from traditional git-repository templates focused solely on reproducibility, Digital Booklet centers its approach on enhancing reusability and user experience. Leveraging the power of CI/CD, Jupyter book, and online computational resources like Google Colab, this project opens the doors to open-source demos for a diverse audience, spanning various levels of technical proficiency. Whether you're a seasoned pro or a newcomer, Digital Booklet is your gateway to a new era of innovation and accessibility in the open-source community.											</p>
+											<ul class="actions">
+												<li><a href="#" class="button small">More</a></li>
+											</ul>
+										</article>
+										<article>
+											<iframe width="100%" height="auto"
+											src="https://www.youtube.com/embed/Sdc8hIYkIXo">
+											</iframe>
+											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
+											<h3>Active Vision for Early Recognition of Human Actions</h3>
+											<p align="justify">
+												We propose a method for early recognition of human actions, one that can take advantages of multiple cameras while satisfying the constraints due to limited communication bandwidth and processing power. Our method considers multiple cameras, and at each time step, it will decide the best camera to use so that a confident recognition decision can be reached as soon as possible. We formulate the camera selection problem as a sequential decision process, and learn a view selection policy based on reinforcement learning.
+											</p>
+											<ul class="actions">
+												<li><a href="#" class="button small">More</a></li>
+											</ul>
+			
+										</article>
+										<article>
+											<iframe width="100%" height="auto"
+											src="https://www.youtube.com/embed/4QBrRNPiKEM">
+											</iframe>
+											<h3>ResNest: Split Attention Networks</h3>
+											<p align="justify">It is well known that featuremap attention and multi-path representation are important for visual recognition. In this paper, we present a modularized architecture, which applies the channel-wise attention on different network branches to leverage their success in capturing cross-feature interactions and learning diverse representations. Our design results in a simple and unified computation block, which can be parameterized using only a few variables. Our model, named ResNeSt, outperforms EfficientNet in accuracy and latency trade-off on image classification. </p>
+											<ul class="actions">
+												<li><a href="#" class="button small">More</a></li>
+											</ul>
+										</article>
+										<article>
+											<iframe width="100%" height="auto"
+											src="https://www.youtube.com/embed/_baxF-9lBrE">
+											</iframe>
+											<h3>Chained Tracker</h3>
+											<p align="justify"> Existing Multiple-Object Tracking (MOT) methods either follow the tracking-by-detection paradigm to conduct object detection, feature extraction and data association separately, or have two of the three subtasks integrated to form a partially end-to-end solution. Going beyond these sub-optimal frameworks, we propose a simple online model named Chained-Tracker (CTracker), which naturally integrates all the three subtasks into an end-to-end solution (the first as far as we know). </p>
+											<ul class="actions">
+												<li><a href="#" class="button small">More</a></li>
+											</ul>
+										</article>
+										
+										<article>
+											<iframe width="100%" height="auto"
+											src="https://www.youtube.com/embed/6jRdesbrFqE">
+											</iframe>
+											<h3>ISSUM Workshop</h3>
+											<p align="justify"> I presented a part of my master thesis at the ISSUM Workshop. Some of the details have been omitted for confidentiality. Will probably post a complete version once our publication is public. </p>
+											<ul class="actions">
+												<li><a href="#" class="button small">More</a></li>
+											</ul>
+										</article>
+
+										<article>
+											<iframe width="100%" height="auto"
+											src="https://www.youtube.com/embed/w5Mj5ONl8n0">
+											</iframe>
+											<h3>Trackformer</h3>
+											<p align="justify"> A through description into the first tracker following a tracking-by-attention paradigm. In this video the model Trackformer and its corresponding paper Multiple Object Tracking with Transformers are explained. </p>
+											<ul class="actions">
+												<li><a href="#" class="button small">More</a></li>
+											</ul>
+										</article>
+
+										<article>
+											<iframe width="100%" height="auto"
+											src="https://www.youtube.com/embed/MsL-EtDlU3c">
+											</iframe>
+											<h3>ISSUM Workshop Closing Event</h3>
+											<p align="justify"> I presented a part of my master thesis at the ISSUM Workshop Closing Event. Some of the details have been omitted for confidentiality. Will probably post a complete version once our publication is public. </p>
+											<ul class="actions">
+												<li><a href="#" class="button small">More</a></li>
+											</ul>
+										</article>
+						
+									</div>
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+										<li><a href="projects.html">Projects</a></li>
+										<li><a href="talks.html">Talks</a></li>
+										<li><a href="tutorials.html">Tutorials</a></li>
+										<li><a href="publications.html">Publications</a></li>
+										<li><a href="contact.html">Contact</a></li>
+										<!-- <li><a href="index.html">Homepage</a></li>
+										<li><a href="generic.html">Generic</a></li>
+										<li><a href="elements.html">Elements</a></li>
+										<li>
+											<span class="opener">Submenu</span>
+											<ul>
+												<li><a href="#">Lorem Dolor</a></li>
+												<li><a href="#">Ipsum Adipiscing</a></li>
+												<li><a href="#">Tempus Magna</a></li>
+												<li><a href="#">Feugiat Veroeros</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Etiam Dolore</a></li>
+										<li><a href="#">Adipiscing</a></li>
+										<li>
+											<span class="opener">Another Submenu</span>
+											<ul>
+												<li><a href="#">Lorem Dolor</a></li>
+												<li><a href="#">Ipsum Adipiscing</a></li>
+												<li><a href="#">Tempus Magna</a></li>
+												<li><a href="#">Feugiat Veroeros</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Maximus Erat</a></li>
+										<li><a href="#">Sapien Mauris</a></li>
+										<li><a href="#">Amet Lacinia</a></li> -->
+									</ul>
+								</nav>
+
+							<!-- Section -->
+							<!-- in this section you can have mini posts with images -->
+								<!-- <section>
+									<header class="major">
+										<h2>Ante interdum</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+									</div>
+									<ul class="actions">
+										<li><a href="#" class="button">More</a></li>
+									</ul>
+								</section> -->
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>I'm always happy to connect with people as a general rule :) In case we share a common interest in a work/scientific matter connect with me in linkein or email me.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:savoji@yorku.ca">savoji@yorku.ca</a></li>
+										<li class="icon solid fa-phone">(647) 835-6679</li>
+										<!-- <li class="icon solid fa-home"> </li> -->
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+			<script src="assets/js/jquery.min.js" type="text/javascript"></script>
+			<script src="assets/js/browser.min.js" type="text/javascript"></script>``
+			<script src="assets/js/breakpoints.min.js" type="text/javascript"></script>
+			<script src="assets/js/util.js" type="text/javascript"></script>
+			<script src="assets/js/main.js" type="text/javascript"></script>
+			<script src="assets/js/jquery.easyPaginate.js" type="text/javascript"></script>
+			<script src="assets/js/scripts.js" type="text/javascript"></script>
+			
+
+	</body>
 </html>

@@ -1,0 +1,36 @@
+/* Small additions layered over main.css. Keeps the Editorial theme and the
+   #2d709c blue; only fixes things that were broken or hard to read. */
+
+/* Body text was #7f888f, about 3:1 on white and below the 4.5:1 minimum. */
+body, input, select, textarea { color: #5f686f; }
+
+/* Justified text at this measure opens rivers of whitespace between words. */
+#main p[align="justify"], #main p { text-align: left; }
+
+/* iframe height="auto" is not valid, so the talk videos collapsed to a sliver.
+   A 16:9 box gives them their real size at every width. */
+#main iframe {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+	border: 0;
+	border-radius: 4px;
+	background: #eff1f2;
+}
+
+/* The portrait had no size rule and filled its whole column. #banner is
+   already a flex row, so this just caps it; float would be ignored here. */
+#banner .image.object {
+	width: 34%;
+	max-width: 300px;
+	margin-left: 2.5em;
+}
+#banner .image.object img { width: 100%; border-radius: 4px; }
+@media screen and (max-width: 980px) {
+	#banner .image.object { width: 100%; max-width: 240px; margin: 0 0 1.5em 0; }
+}
+
+/* A little more air between publication entries, and tidier link runs. */
+#main article + article { margin-top: 1.25em; }
+#main article .content h3 { margin-bottom: 0.35em; }
+#main article .content h3 + a { font-size: 0.85em; }
