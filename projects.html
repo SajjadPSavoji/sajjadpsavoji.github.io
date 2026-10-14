@@ -1,383 +1,152 @@
-<!DOCTYPE HTML>
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Sajjad P. Savoji</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Projects — Sajjad P. Savoji</title>
+	<meta name="description" content="Machine learning projects and reimplementations by Sajjad Pakdamansavoji." />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" />
+	<link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body>
+	<a class="skip" href="#main">Skip to content</a>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+	<header class="masthead">
+		<div class="wrap masthead-row">
+			<a class="wordmark" href="index.html">Sajjad P. Savoji</a>
+			<nav class="nav" aria-label="Main">
+				<a href="index.html">About</a>
+				<a href="publications.html">Publications</a>
+				<a href="projects.html" aria-current="page">Projects</a>
+				<a href="talks.html">Talks</a>
+				<a href="tutorials.html">Tutorials</a>
+				<a href="contact.html">Contact</a>
+			</nav>
+		</div>
+	</header>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<!-- Header -->
-								<header id="header">
-									<!-- <a href="about.html" class="logo">About |</a>
-									<a href="about.html" class="logo">About |</a> -->
-									<div class="navig">
-										<a href="index.html" class="navig">    About </a>|
-										<a href="projects.html" class="navig">Projects </a>|
-										<a href="talks.html" class="navig">Talks </a>|
-										<a href="tutorials.html" class="navig">Tutorials </a>|
-										<a href="blog.html" class="navig">Blog </a>|
-										<a href="publications.html" class="navig">Publication </a>|
-										<a href="contact.html" class="navig">Contact </a>
-									</div>
+	<main id="main">
+	<section class="wrap" style="padding-block:3rem 0">
+		<h1>Projects</h1>
+		<p class="prose" style="margin-top:1rem">Course work, side projects and reimplementations, mostly from my studies. Each has a write-up and source.</p>
+	</section>
 
-									<ul class="icons">
-										<li><a href="https://www.linkedin.com/in/sajjad-pakdamansavoji-9672221b6/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-										<li><a href="https://github.com/SajjadPSavoji" class="icon brands fa-github"><span class="label">Github</span></a></li>
-										<li><a href="https://twitter.com/saavoji" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://www.facebook.com/profile.php?id=100075908712362" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<!-- <li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li> -->
-										<li><a href="https://www.instagram.com/sajad_pkn" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="mailto:savoji@yorku.ca" class="icon solic fa-envelope"><span class="label">email</span></a></li>
-										<!-- <li class="icon solid fa-envelope"><a href="mailto: savoji@yorku.ca"> </a></li> -->
-										<!-- <li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li> -->
-									</ul>
-								</header>
-
-							<!-- Section -->
-								<section>
-									<div class="posts">
-										<article>
-											<img src="images/Avtive_polyhedral_1.jpeg" alt="polyhedral scenes" width="100%" height="auto">
-											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3>Active Polyhedral Scene Matching</h3>
-											<p align="justify">
-												Matching Polyhedrals only based on visual input in an active fashion is far from trivial. In short My solution consists of four main modules: observation, feature extraction, comparison, active motion policy. Observation module receives a camera position and object ID from the Active Policy module and presents an image of the object. Feature extraction takes in the observation and creates informative features from it. Comparison module takes in those features and decides whether the two objects are the same. Such decision is then propagated to the Active Motion Policy where the next observation position is created.
-											</p>
-											<ul class="actions">
-												<li><a href="https://github.com/SajjadPSavoji/Active-Polyhedral-Scene-Matching/blob/main/Polyhedral_Active_Recognition.pdf" class="button small">Doc</a></li>
-												<li><a href="https://github.com/SajjadPSavoji/Active-Polyhedral-Scene-Matching" class="button small"><span class="label">Code</span></a></li>
-											</ul>
-										</article>
-
-										<article>
-											<img src="images/DCGAN3.jpeg" alt="Deep Convolution GAN" width="100%" height="auto">
-											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3>Deep Convolution Generative Adversarial Network (DCGAN)</h3>
-											<p align="justify">
-												Supervised learning with convolutional networks (CNNs) has seen huge adoption in computer vision applications. Comparatively, unsupervised learning with CNNs has received less attention. In this project, adopting from the original paper, I implement a deep convolutional generative adversarial networks (DCGANs), that have certain architectural constraints, and demonstrate that they are a strong candidate for unsupervised learning. Training on CFAR10, I show convincing evidence that our deep convolutional adversarial pair learns a hierarchy of representations from object parts to scenes in both the generator and discriminator.
-											</p>
-											<ul class="actions">
-												<li><a href="https://github.com/SajjadPSavoji/Deep-Convolutional-GAN/blob/master/NNDL_miniproj3_report.pdf" class="button small">Doc</a></li>
-												<li><a href="https://github.com/SajjadPSavoji/Deep-Convolutional-GAN" class="button small"><span class="label">Code</span></a></li>
-											</ul>
-										</article>
-
-										<article>
-											<img src="images/CTBike.jpeg" alt="CTBIKE Image" width="100%" height="auto">
-											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3>New York CitiBike Trip Histories</h3>
-											<p align="justify">
-
-												In recent years, Bike Sharing has
-												become popular in a growing list of cities around the world. The
-												NYC “CitiBike” bicycle sharing scheme went live in 2013, and has been expanding ever since,
-												both as measured by daily ridership as well as the expanding geographic
-												footprint incorporating a growing number of “docking
-												stations”. One problem that many bikeshare systems face is money. An increase
-												in the number of riders who want to use the system necessitates
-												that more bikes be purchased and put into service to accommodate
-												them. We seek to examine Citibike trip data
-												to extract meaningful relations and conclusions which will provide
-												insight for executive sectors. Our findings can be categorized under
-												three titles: usage trends, common locations, expansion policy.
-											</p>
-											<ul class="actions">
-												<li><a href="https://github.com/SajjadPSavoji/CitiBikeNYC/blob/main/DAV_Project%20Final%20Report.pdf" class="button small">Doc</a></li>
-												<li><a href="https://github.com/SajjadPSavoji/CitiBikeNYC" class="button small"><span class="label">Code</span></a></li>
-											</ul>
-										</article>
-
-										<article>
-											<img src="images/VAE3.jpeg" alt="VAE Image" width="100%" height="auto">
-											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3>Variational AutoEncoder(VAE)</h3>
-											<p align="justify">
-												VAE is a way to perform efficient inference and learning in directed probabilistic models, in the presence of continuous latent variables with intractable posterior distributions, and large datasets? It introduces a stochastic variational inference and learning algorithm that scales to large datasets and, under some mild differentiability conditions, even works in the intractable case. This works contributions is two-fold. First, we show that a reparameterization of the variational lower bound yields a lower bound estimator that can be straightforwardly optimized using standard stochastic gradient methods.
-							
-											</p>
-											<ul class="actions">
-												<li><a href="https://github.com/SajjadPSavoji/Variational-Auto-Encoder/blob/master/NNDL_miniproj3_report.pdf" class="button small">Doc</a></li>
-												<li><a href="https://github.com/SajjadPSavoji/Variational-Auto-Encoder" class="button small"><span class="label">Code</span></a></li>
-											</ul>
-										</article>
-
-										<article>
-											<img src="images/XLNet2.jpeg" alt="XLNet Banner" width="100%" height="auto">
-											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> XLNet for Hateful Twitter Capturing </h3>
-											<p align="justify">
-												With accordance to general rules of social media platforms, some posts which include hate-speech are prohibited. This phenomenon is more important in twitter as users can stay unrecognized only sharing a line of words. In this project one of the most common Transformer models XLNet is used to capture such hate-full comments.
-
-											</p>
-											<ul class="actions">
-												<li><a href="https://github.com/SajjadPSavoji/Hate_Speech_Detection/blob/main/CA4_Report.docx.pdf" class="button small">Doc</a></li>
-												<li><a href="https://github.com/SajjadPSavoji/Hate_Speech_Detection/blob/main/README.md" class="button small"><span class="label">Code</span></a></li>
-											</ul>
-										</article>
-
-										<article>
-											<img src="images/BERT3.jpeg" alt="BERT Banner" width="100%" height="auto">
-											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Hate Speech Detection with Bidirectional Encoder Representations from Transformers(BERT) </h3>
-											<p align="justify">
-												With accordance to general rules of social media platforms, some posts which include hate-speech are prohibited. This phenomenon is more important in twitter as users can stay unrecognized only sharing a line of words. In this project one of the most common Transformer models BERT is used to capture such hate-full comments.
-
-											</p>
-											<ul class="actions">
-												<li><a href="https://github.com/SajjadPSavoji/Hate_Speech_Detection/blob/main/CA4_Report.docx.pdf" class="button small">Doc</a></li>
-												<li><a href="https://github.com/SajjadPSavoji/Hate_Speech_Detection/blob/main/README.md" class="button small"><span class="label">Code</span></a></li>
-											</ul>
-										</article>
-
-										<article>
-											<img src="images/LSTMLM.webp" alt="LSTMLM Banner" width="100%" height="auto">
-											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Sentence Generation with Long-Short-Term-Memory</h3>
-											<p align="justify">
-
-												In this project, a sentence generator is developed using LSTM modules.
-												 To optimize the final model, there are several aspects that can be optimized. Among those aspects,
-												  Hidden Dimension, Number of Layers, Embedding Dim, and Learning Rate was studied. n case studies other parameters of the model was fixed to ensure accurate comparision.
-
-
-											</p>
-											<ul class="actions">
-												<li><a href="https://github.com/SajjadPSavoji/Language_Modelling_LSTM/blob/main/Report/report.pdf" class="button small">Doc</a></li>
-												<li><a href="https://github.com/SajjadPSavoji/Language_Modelling_LSTM" class="button small"><span class="label">Code</span></a></li>
-											</ul>
-										</article>
-
-										<article>
-											<img src="images/NNGram.jpeg" alt="Bgram Banner" width="100%" height="auto">
-											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Word-level vs Char-level Ngrams Language Models</h3>
-											<p align="justify">
-
-												N-Gram as the most intuitive computational language model can be implemented in the word-level or the char-leverl while having freedom-of-choice in terms of the N variable. In this project a fair comparision of uni-gram and bi-gram models in the word and charachter level. The result of the study, consistent with intuition, showed word-level LMs hold better results for generic tasks.
-											</p>
-											<ul class="actions">
-												<li><a href="https://github.com/SajjadPSavoji/Ngram_Language_Model/blob/main/Report.pdf" class="button small">Doc</a></li>
-												<li><a href="https://github.com/SajjadPSavoji/Ngram_Language_Model" class="button small"><span class="label">Code</span></a></li>
-											</ul>
-										</article>
-
-										<article>
-											<img src="images/ACGAN.png" alt="Bgram Banner" width="100%" height="auto">
-											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Auxiliary Image Synthesis with AC-GAN </h3>
-											<p align="justify">
-												Synthesizing high resolution photorealistic images has been a long-standing challenge in machine learning. In this project we use a new methods for the improved training of generative adversarial networks (GANs) for image synthesis. Construct a variant of GANs employing label conditioning that results in 128x128 resolution image samples exhibiting global coherence.
-											</p>
-											<ul class="actions">
-												<li><a href="https://github.com/SajjadPSavoji/Auxiliary-Classifier-GAN/blob/master/NNDL_miniproj3_report.pdf" class="button small">Doc</a></li>
-												<li><a href="https://github.com/SajjadPSavoji/Auxiliary-Classifier-GAN" class="button small"><span class="label">Code</span></a></li>
-											</ul>
-										</article>
-
-										<article>
-											<img src="images/CGAN.png" alt="Bgram Banner" width="100%" height="auto">
-											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Conditional Generative Network (cGAN) for Image Synthesis</h3>
-											<p align="justify">
-												Generative Adversarial Nets were introduced as a novel way to train generative models. In this project we use the conditional version of generative adversarial nets, which can be constructed by simply feeding the data, y, we wish to condition on to both the generator and discriminator. We show that this model can generate CFAR-10 digits conditioned on class labels.											</p>
-											<ul class="actions">
-												<li><a href="https://github.com/SajjadPSavoji/Conditional-GAN/blob/master/NNDL_miniproj3_report.pdf" class="button small">Doc</a></li>
-												<li><a href="https://github.com/SajjadPSavoji/Conditional-GAN" class="button small"><span class="label">Code</span></a></li>
-											</ul>
-										</article>
-
-										<article>
-											<img src="images/KmeansBanner.jpeg" alt="Kmeans Banner" width="100%" height="auto">
-											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Color Compression with Unsupervised Spherical Clustering</h3>
-											<p align="justify">
-												The K-means algorithm can be used to compress the image. Unlike lossless compression, K-means uses lossy compression, so it is not possible to recover the original image from the compressed image. The larger the compression ratio, the larger the difference between the compressed image and the original image.
-											<ul class="actions">
-												<li><a href="https://github.com/SajjadPSavoji/Image-Compression-Kmeans/blob/master/hw8.pdf" class="button small">Doc</a></li>
-												<li><a href="https://github.com/SajjadPSavoji/Image-Compression-Kmeans" class="button small"><span class="label">Code</span></a></li>
-											</ul>
-										</article>
-										<article>
-											<img src="images/HMMBanner2.jpeg" alt="HMM Banner" width="100%" height="auto">
-											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Review Sentiment Analysis using Hidden Markov Models</h3>
-											<p align="justify">
-												In this work, we examine the performance of Hidden Markov Models (HMM) in the recognition of sentiments and opinions in text. User-generated content in social media contain very meaningful information about public sentiment and stance and require automated methods to analyze them extract knowledge from them. <ul class="actions">
-												<li><a href="https://github.com/SajjadPSavoji/Twitter-Sentiment-Analysis-HMM/blob/master/README.md" class="button small">Doc</a></li>
-												<li><a href="https://github.com/SajjadPSavoji/Twitter-Sentiment-Analysis-HMM" class="button small"><span class="label">Code</span></a></li>
-											</ul>
-										</article>
-										<article>
-											<img src="images/German.jpeg" alt="HMM Banner" width="100%" height="auto">
-											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> GTSRB: a case study on network structures </h3>
-											<p align="justify">
-												The German Traffic Sign Benchmark is a multi-class, single-image classification challenge held at the International Joint Conference on Neural Networks (IJCNN) 2011. In this case study we examine the effect of common components in CNNs(including normalization layers) on the traceability and generalization capabilities <ul class="actions">
-												<li><a href="https://github.com/SajjadPSavoji/German-Traffic-Sign-Recognition-Benchmark/blob/master/README.md" class="button small">Doc</a></li>
-												<li><a href="https://github.com/SajjadPSavoji/German-Traffic-Sign-Recognition-Benchmark" class="button small"><span class="label">Code</span></a></li>
-											</ul>
-										</article>
-										<article>
-											<img src="images/VAEFaces.png" alt="VAE Faces" width="100%" height="auto">
-											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Representing Faces on Low Dimensional Manifolds </h3>
-											<p align="justify">
-												VAE, as an extended version of Auto Encoders, can be used to model a low dimensional distribution of faces. given that, one will be able to regress, generate and compare faces accordingly. In this work I trained a VAE on the CelebA dataset. <ul class="actions">
-												<li><a href="https://github.com/SajjadPSavoji/VAEFaces/blob/main/Report/icml2020_style.pdf" class="button small">Doc</a></li>
-												<li><a href="https://github.com/SajjadPSavoji/VAEFaces" class="button small"><span class="label">Code</span></a></li>
-											</ul>
-										</article>
-										<article>
-											<img src="images/RealNVP.png" alt="RealNVP Faces" width="100%" height="auto">
-											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Real-Valued Non-Volume Preserving Transformations for Faces</h3>
-											<p align="justify">
-												Unsupervised learning of probabilistic models is a central yet challenging problem in machine learning. Specifically, designing models with tractable learning, sampling, inference and evaluation is crucial in solving this task. RealVNP extends the space of such models resulting in an unsupervised learning algorithm with exact log-likelihood computation, exact sampling, exact inference of latent variables, and an interpretable latent space. In this work such model is used to learn the underlying dist of faces. <ul class="actions">
-												<li><a href="https://github.com/SajjadPSavoji/RealNVPFaces/blob/main/Report/icml2020_style.pdf" class="button small">Doc</a></li>
-												<li><a href="https://github.com/SajjadPSavoji/RealNVPFaces/" class="button small"><span class="label">Code</span></a></li>
-											</ul>
-										</article>
-
-										<article>
-											<img src="images/DCGANFaces.png" alt="DCGAN Faces" width="100%" height="auto">
-											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Fake-Face Recognition with Generative Neural Networks</h3>
-											<p align="justify">
-												Deep learning methodologies have been used to create applications that can cause threats to privacy, democracy and national security and could be used to further amplify malicious activities. One of those deep learning-powered applications in recent times is synthesized pictures of famous personalities. In this work, a common GAN is used not as a generative model, but as a discriminator which recognizes fake faces from real ones.<ul class="actions">
-												<li><a href="https://github.com/SajjadPSavoji/DCGANFaces/tree/main/Report" class="button small">Doc</a></li>
-												<li><a href="https://github.com/SajjadPSavoji/DCGANFaces" class="button small"><span class="label">Code</span></a></li>
-											</ul>
-										</article>
-									</div>
-								</section>
-
-						</div>
-					</div>
-
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
-
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="index.html">Homepage</a></li>
-										<li><a href="projects.html">Projects</a></li>
-										<li><a href="talks.html">Talks</a></li>
-										<li><a href="tutorials.html">Tutorials</a></li>
-										<li><a href="blog.html" class="navig">Blog </a></li>
-										<li><a href="publications.html">Publications</a></li>
-										<li><a href="contact.html">Contact</a></li>
-										<!-- <li><a href="index.html">Homepage</a></li>
-										<li><a href="generic.html">Generic</a></li>
-										<li><a href="elements.html">Elements</a></li>
-										<li>
-											<span class="opener">Submenu</span>
-											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Etiam Dolore</a></li>
-										<li><a href="#">Adipiscing</a></li>
-										<li>
-											<span class="opener">Another Submenu</span>
-											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Maximus Erat</a></li>
-										<li><a href="#">Sapien Mauris</a></li>
-										<li><a href="#">Amet Lacinia</a></li> -->
-									</ul>
-								</nav>
-
-							<!-- Section -->
-							<!-- in this section you can have mini posts with images -->
-								<!-- <section>
-									<header class="major">
-										<h2>Ante interdum</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section> -->
-
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Get in touch</h2>
-									</header>
-									<p>I'm always happy to connect with people as a general rule :) In case we share a common interest in a work/scientific matter connect with me in linkein or email me.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="mailto:savoji@yorku.ca">savoji@yorku.ca</a></li>
-										<li class="icon solid fa-phone">(647) 835-6679</li>
-										<!-- <li class="icon solid fa-home"> </li> -->
-									</ul>
-								</section>
-
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-								</footer>
-
-						</div>
-					</div>
-
+	<section class="section">
+		<div class="wrap">
+			<div class="grid">
+			<article class="card">
+				<img src="images/Avtive_polyhedral_1.jpeg" alt="" loading="lazy" style="border-radius:4px;margin-bottom:1rem" />
+				<h3>Active Polyhedral Scene Matching</h3>
+				<p>Matching Polyhedrals only based on visual input in an active fashion is far from trivial. In short My solution consists of four main modules: observation, feature extraction, comparison, active motion policy. Observation module receives a camera position and object ID from the Active Policy module and presents an image of the object. Feature extraction takes in the observation and creates informative features from it. Comparison module takes in those features and decides whether the two objects are the same. Such decision is then propagated to the Active Motion Policy where the next observation position is created.</p>
+				<div class="card-links"><a href="https://github.com/SajjadPSavoji/Active-Polyhedral-Scene-Matching/blob/main/Polyhedral_Active_Recognition.pdf">Doc</a><a href="https://github.com/SajjadPSavoji/Active-Polyhedral-Scene-Matching">Code</a></div>
+			</article>
+			<article class="card">
+				<img src="images/DCGAN3.jpeg" alt="" loading="lazy" style="border-radius:4px;margin-bottom:1rem" />
+				<h3>Deep Convolution Generative Adversarial Network (DCGAN)</h3>
+				<p>Supervised learning with convolutional networks (CNNs) has seen huge adoption in computer vision applications. Comparatively, unsupervised learning with CNNs has received less attention. In this project, adopting from the original paper, I implement a deep convolutional generative adversarial networks (DCGANs), that have certain architectural constraints, and demonstrate that they are a strong candidate for unsupervised learning. Training on CFAR10, I show convincing evidence that our deep convolutional adversarial pair learns a hierarchy of representations from object parts to scenes in both the generator and discriminator.</p>
+				<div class="card-links"><a href="https://github.com/SajjadPSavoji/Deep-Convolutional-GAN/blob/master/NNDL_miniproj3_report.pdf">Doc</a><a href="https://github.com/SajjadPSavoji/Deep-Convolutional-GAN">Code</a></div>
+			</article>
+			<article class="card">
+				<img src="images/CTBike.jpeg" alt="" loading="lazy" style="border-radius:4px;margin-bottom:1rem" />
+				<h3>New York CitiBike Trip Histories</h3>
+				<p>In recent years, Bike Sharing has become popular in a growing list of cities around the world. The NYC “CitiBike” bicycle sharing scheme went live in 2013, and has been expanding ever since, both as measured by daily ridership as well as the expanding geographic footprint incorporating a growing number of “docking stations”. One problem that many bikeshare systems face is money. An increase in the number of riders who want to use the system necessitates that more bikes be purchased and put into service to accommodate them. We seek to examine Citibike trip data to extract meaningful relations and conclusions which will provide insight for executive sectors. Our findings can be categorized under three titles: usage trends, common locations, expansion policy.</p>
+				<div class="card-links"><a href="https://github.com/SajjadPSavoji/CitiBikeNYC/blob/main/DAV_Project%20Final%20Report.pdf">Doc</a><a href="https://github.com/SajjadPSavoji/CitiBikeNYC">Code</a></div>
+			</article>
+			<article class="card">
+				<img src="images/VAE3.jpeg" alt="" loading="lazy" style="border-radius:4px;margin-bottom:1rem" />
+				<h3>Variational AutoEncoder(VAE)</h3>
+				<p>VAE is a way to perform efficient inference and learning in directed probabilistic models, in the presence of continuous latent variables with intractable posterior distributions, and large datasets? It introduces a stochastic variational inference and learning algorithm that scales to large datasets and, under some mild differentiability conditions, even works in the intractable case. This works contributions is two-fold. First, we show that a reparameterization of the variational lower bound yields a lower bound estimator that can be straightforwardly optimized using standard stochastic gradient methods.</p>
+				<div class="card-links"><a href="https://github.com/SajjadPSavoji/Variational-Auto-Encoder/blob/master/NNDL_miniproj3_report.pdf">Doc</a><a href="https://github.com/SajjadPSavoji/Variational-Auto-Encoder">Code</a></div>
+			</article>
+			<article class="card">
+				<img src="images/XLNet2.jpeg" alt="" loading="lazy" style="border-radius:4px;margin-bottom:1rem" />
+				<h3>XLNet for Hateful Twitter Capturing</h3>
+				<p>With accordance to general rules of social media platforms, some posts which include hate-speech are prohibited. This phenomenon is more important in twitter as users can stay unrecognized only sharing a line of words. In this project one of the most common Transformer models XLNet is used to capture such hate-full comments.</p>
+				<div class="card-links"><a href="https://github.com/SajjadPSavoji/Hate_Speech_Detection/blob/main/CA4_Report.docx.pdf">Doc</a><a href="https://github.com/SajjadPSavoji/Hate_Speech_Detection/blob/main/README.md">Code</a></div>
+			</article>
+			<article class="card">
+				<img src="images/BERT3.jpeg" alt="" loading="lazy" style="border-radius:4px;margin-bottom:1rem" />
+				<h3>Hate Speech Detection with Bidirectional Encoder Representations from Transformers(BERT)</h3>
+				<p>With accordance to general rules of social media platforms, some posts which include hate-speech are prohibited. This phenomenon is more important in twitter as users can stay unrecognized only sharing a line of words. In this project one of the most common Transformer models BERT is used to capture such hate-full comments.</p>
+				<div class="card-links"><a href="https://github.com/SajjadPSavoji/Hate_Speech_Detection/blob/main/CA4_Report.docx.pdf">Doc</a><a href="https://github.com/SajjadPSavoji/Hate_Speech_Detection/blob/main/README.md">Code</a></div>
+			</article>
+			<article class="card">
+				<img src="images/LSTMLM.webp" alt="" loading="lazy" style="border-radius:4px;margin-bottom:1rem" />
+				<h3>Sentence Generation with Long-Short-Term-Memory</h3>
+				<p>In this project, a sentence generator is developed using LSTM modules. To optimize the final model, there are several aspects that can be optimized. Among those aspects, Hidden Dimension, Number of Layers, Embedding Dim, and Learning Rate was studied. n case studies other parameters of the model was fixed to ensure accurate comparision.</p>
+				<div class="card-links"><a href="https://github.com/SajjadPSavoji/Language_Modelling_LSTM/blob/main/Report/report.pdf">Doc</a><a href="https://github.com/SajjadPSavoji/Language_Modelling_LSTM">Code</a></div>
+			</article>
+			<article class="card">
+				<img src="images/NNGram.jpeg" alt="" loading="lazy" style="border-radius:4px;margin-bottom:1rem" />
+				<h3>Word-level vs Char-level Ngrams Language Models</h3>
+				<p>N-Gram as the most intuitive computational language model can be implemented in the word-level or the char-leverl while having freedom-of-choice in terms of the N variable. In this project a fair comparision of uni-gram and bi-gram models in the word and charachter level. The result of the study, consistent with intuition, showed word-level LMs hold better results for generic tasks.</p>
+				<div class="card-links"><a href="https://github.com/SajjadPSavoji/Ngram_Language_Model/blob/main/Report.pdf">Doc</a><a href="https://github.com/SajjadPSavoji/Ngram_Language_Model">Code</a></div>
+			</article>
+			<article class="card">
+				<img src="images/ACGAN.png" alt="" loading="lazy" style="border-radius:4px;margin-bottom:1rem" />
+				<h3>Auxiliary Image Synthesis with AC-GAN</h3>
+				<p>Synthesizing high resolution photorealistic images has been a long-standing challenge in machine learning. In this project we use a new methods for the improved training of generative adversarial networks (GANs) for image synthesis. Construct a variant of GANs employing label conditioning that results in 128x128 resolution image samples exhibiting global coherence.</p>
+				<div class="card-links"><a href="https://github.com/SajjadPSavoji/Auxiliary-Classifier-GAN/blob/master/NNDL_miniproj3_report.pdf">Doc</a><a href="https://github.com/SajjadPSavoji/Auxiliary-Classifier-GAN">Code</a></div>
+			</article>
+			<article class="card">
+				<img src="images/CGAN.png" alt="" loading="lazy" style="border-radius:4px;margin-bottom:1rem" />
+				<h3>Conditional Generative Network (cGAN) for Image Synthesis</h3>
+				<p>Generative Adversarial Nets were introduced as a novel way to train generative models. In this project we use the conditional version of generative adversarial nets, which can be constructed by simply feeding the data, y, we wish to condition on to both the generator and discriminator. We show that this model can generate CFAR-10 digits conditioned on class labels.</p>
+				<div class="card-links"><a href="https://github.com/SajjadPSavoji/Conditional-GAN/blob/master/NNDL_miniproj3_report.pdf">Doc</a><a href="https://github.com/SajjadPSavoji/Conditional-GAN">Code</a></div>
+			</article>
+			<article class="card">
+				<img src="images/KmeansBanner.jpeg" alt="" loading="lazy" style="border-radius:4px;margin-bottom:1rem" />
+				<h3>Color Compression with Unsupervised Spherical Clustering</h3>
+				<p>The K-means algorithm can be used to compress the image. Unlike lossless compression, K-means uses lossy compression, so it is not possible to recover the original image from the compressed image. The larger the compression ratio, the larger the difference between the compressed image and the original image.</p>
+				<div class="card-links"><a href="https://github.com/SajjadPSavoji/Image-Compression-Kmeans/blob/master/hw8.pdf">Doc</a><a href="https://github.com/SajjadPSavoji/Image-Compression-Kmeans">Code</a></div>
+			</article>
+			<article class="card">
+				<img src="images/HMMBanner2.jpeg" alt="" loading="lazy" style="border-radius:4px;margin-bottom:1rem" />
+				<h3>Review Sentiment Analysis using Hidden Markov Models</h3>
+				<p>In this work, we examine the performance of Hidden Markov Models (HMM) in the recognition of sentiments and opinions in text. User-generated content in social media contain very meaningful information about public sentiment and stance and require automated methods to analyze them extract knowledge from them.</p>
+				<div class="card-links"><a href="https://github.com/SajjadPSavoji/Twitter-Sentiment-Analysis-HMM/blob/master/README.md">Doc</a><a href="https://github.com/SajjadPSavoji/Twitter-Sentiment-Analysis-HMM">Code</a></div>
+			</article>
+			<article class="card">
+				<img src="images/German.jpeg" alt="" loading="lazy" style="border-radius:4px;margin-bottom:1rem" />
+				<h3>GTSRB: a case study on network structures</h3>
+				<p>The German Traffic Sign Benchmark is a multi-class, single-image classification challenge held at the International Joint Conference on Neural Networks (IJCNN) 2011. In this case study we examine the effect of common components in CNNs(including normalization layers) on the traceability and generalization capabilities</p>
+				<div class="card-links"><a href="https://github.com/SajjadPSavoji/German-Traffic-Sign-Recognition-Benchmark/blob/master/README.md">Doc</a><a href="https://github.com/SajjadPSavoji/German-Traffic-Sign-Recognition-Benchmark">Code</a></div>
+			</article>
+			<article class="card">
+				<img src="images/VAEFaces.png" alt="" loading="lazy" style="border-radius:4px;margin-bottom:1rem" />
+				<h3>Representing Faces on Low Dimensional Manifolds</h3>
+				<p>VAE, as an extended version of Auto Encoders, can be used to model a low dimensional distribution of faces. given that, one will be able to regress, generate and compare faces accordingly. In this work I trained a VAE on the CelebA dataset.</p>
+				<div class="card-links"><a href="https://github.com/SajjadPSavoji/VAEFaces/blob/main/Report/icml2020_style.pdf">Doc</a><a href="https://github.com/SajjadPSavoji/VAEFaces">Code</a></div>
+			</article>
+			<article class="card">
+				<img src="images/RealNVP.png" alt="" loading="lazy" style="border-radius:4px;margin-bottom:1rem" />
+				<h3>Real-Valued Non-Volume Preserving Transformations for Faces</h3>
+				<p>Unsupervised learning of probabilistic models is a central yet challenging problem in machine learning. Specifically, designing models with tractable learning, sampling, inference and evaluation is crucial in solving this task. RealVNP extends the space of such models resulting in an unsupervised learning algorithm with exact log-likelihood computation, exact sampling, exact inference of latent variables, and an interpretable latent space. In this work such model is used to learn the underlying dist of faces.</p>
+				<div class="card-links"><a href="https://github.com/SajjadPSavoji/RealNVPFaces/blob/main/Report/icml2020_style.pdf">Doc</a><a href="https://github.com/SajjadPSavoji/RealNVPFaces/">Code</a></div>
+			</article>
+			<article class="card">
+				<img src="images/DCGANFaces.png" alt="" loading="lazy" style="border-radius:4px;margin-bottom:1rem" />
+				<h3>Fake-Face Recognition with Generative Neural Networks</h3>
+				<p>Deep learning methodologies have been used to create applications that can cause threats to privacy, democracy and national security and could be used to further amplify malicious activities. One of those deep learning-powered applications in recent times is synthesized pictures of famous personalities. In this work, a common GAN is used not as a generative model, but as a discriminator which recognizes fake faces from real ones.</p>
+				<div class="card-links"><a href="https://github.com/SajjadPSavoji/DCGANFaces/tree/main/Report">Doc</a><a href="https://github.com/SajjadPSavoji/DCGANFaces">Code</a></div>
+			</article>
 			</div>
+		</div>
+	</section>
+	</main>
 
-		<!-- Scripts -->
-			<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
-			<script src="assets/js/jquery.min.js" type="text/javascript"></script>
-			<script src="assets/js/browser.min.js" type="text/javascript"></script>``
-			<script src="assets/js/breakpoints.min.js" type="text/javascript"></script>
-			<script src="assets/js/util.js" type="text/javascript"></script>
-			<script src="assets/js/main.js" type="text/javascript"></script>
-			<script src="assets/js/jquery.easyPaginate.js" type="text/javascript"></script>
-			<script src="assets/js/scripts.js" type="text/javascript"></script>
-			
-
-	</body>
+	<footer class="site-footer">
+		<div class="wrap footer-row">
+			<p>&copy; 2026 Sajjad Pakdamansavoji</p>
+			<ul class="social">
+				<li><a href="https://github.com/SajjadPSavoji">GitHub</a></li>
+				<li><a href="https://scholar.google.com/citations?user=DZzLzNwAAAAJ">Google Scholar</a></li>
+				<li><a href="https://www.linkedin.com/in/sajjad-pakdamansavoji-9672221b6/">LinkedIn</a></li>
+				<li><a href="mailto:sj.pakdaman.edu@gmail.com">Email</a></li>
+			</ul>
+		</div>
+	</footer>
+</body>
 </html>
