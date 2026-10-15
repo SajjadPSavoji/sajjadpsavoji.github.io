@@ -20,24 +20,34 @@ body, input, select, textarea { color: #5f686f; }
 
 /* The portrait had no size rule and filled its column, dwarfing the name.
    Cap the photo and give the name more weight so the two balance. */
-#banner { align-items: center; }
+/* main.css lays the banner out as a rigid flex row. Make it a normal block so
+   the portrait can float top-right and the text wraps beneath it once it
+   clears the image. The markup puts the image first for the float to work. */
+#banner {
+	display: block;
+	overflow: hidden;
+}
+#banner .content { width: auto; }
 #banner .content h2 {
 	font-size: 2.5em;
 	line-height: 1.15;
 	margin-bottom: 0.65em;
 }
 #banner .image.object {
-	width: 28%;
-	max-width: 240px;
-	margin-left: 3em;
+	float: right;
+	width: 288px;
+	max-width: 42%;
+	margin: 0 0 2em 3em;
 }
 #banner .image.object img { width: 100%; border-radius: 4px; }
 
-/* main.css flips #banner to column-reverse in portrait orientation, which puts
-   the photo on top at full width. Keep that order, just bound the size. */
-@media screen and (orientation: portrait), screen and (max-width: 980px) {
-	#banner { align-items: flex-start; }
-	#banner .image.object { width: 100%; max-width: 200px; margin: 0 0 1.75em 0; }
+@media screen and (max-width: 736px) {
+	#banner .image.object {
+		float: none;
+		width: 100%;
+		max-width: 240px;
+		margin: 0 0 2em 0;
+	}
 	#banner .content h2 { font-size: 2.1em; }
 }
 
@@ -70,3 +80,17 @@ body, input, select, textarea { color: #5f686f; }
 #main article + article { margin-top: 1.25em; }
 #main article .content h3 { margin-bottom: 0.35em; }
 #main article .content h3 + a { font-size: 0.85em; }
+
+/* Buttons: main.css still hovers them to a faint coral tint left over from the
+   unused palette. Fill them with the theme blue and flip the label to white. */
+#main .button:hover,
+#main .button:focus,
+#main input[type="submit"]:hover,
+#main input[type="submit"]:focus {
+	background-color: #2d709c;
+	box-shadow: inset 0 0 0 2px #2d709c;
+	color: #ffffff !important;
+}
+#main .button:hover .label,
+#main .button:focus .label { color: #ffffff !important; }
+#main .button:active { background-color: #255c80; box-shadow: inset 0 0 0 2px #255c80; }
