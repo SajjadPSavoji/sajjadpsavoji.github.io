@@ -18,16 +18,52 @@ body, input, select, textarea { color: #5f686f; }
 	background: #eff1f2;
 }
 
-/* The portrait had no size rule and filled its whole column. #banner is
-   already a flex row, so this just caps it; float would be ignored here. */
+/* The portrait had no size rule and filled its column, dwarfing the name.
+   Cap the photo and give the name more weight so the two balance. */
+#banner { align-items: center; }
+#banner .content h2 {
+	font-size: 2.5em;
+	line-height: 1.15;
+	margin-bottom: 0.65em;
+}
 #banner .image.object {
-	width: 34%;
-	max-width: 300px;
-	margin-left: 2.5em;
+	width: 28%;
+	max-width: 240px;
+	margin-left: 3em;
 }
 #banner .image.object img { width: 100%; border-radius: 4px; }
-@media screen and (max-width: 980px) {
-	#banner .image.object { width: 100%; max-width: 240px; margin: 0 0 1.5em 0; }
+
+/* main.css flips #banner to column-reverse in portrait orientation, which puts
+   the photo on top at full width. Keep that order, just bound the size. */
+@media screen and (orientation: portrait), screen and (max-width: 980px) {
+	#banner { align-items: flex-start; }
+	#banner .image.object { width: 100%; max-width: 200px; margin: 0 0 1.75em 0; }
+	#banner .content h2 { font-size: 2.1em; }
+}
+
+/* Projects, talks and tutorials: each entry becomes a bordered card whose
+   boundary picks up the theme blue on hover. */
+#main .posts > article {
+	margin-bottom: 3em;
+	padding: 1.5em;
+	border: 1px solid #e2e6e9;
+	border-radius: 6px;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+#main .posts > article:hover {
+	border-color: #2d709c;
+	box-shadow: 0 2px 12px rgba(45, 112, 156, 0.12);
+}
+/* The template draws divider rules between entries; the card border replaces
+   them, so hide both the vertical (:before) and horizontal (:after) rules. */
+#main .posts > article:before,
+#main .posts > article:after { display: none; }
+#main .posts > article > img,
+#main .posts > article > a.image img { border-radius: 4px; }
+#main .posts > article h3 { margin-top: 0.75em; }
+
+@media (prefers-reduced-motion: reduce) {
+	#main .posts > article { transition: none; }
 }
 
 /* A little more air between publication entries, and tidier link runs. */
