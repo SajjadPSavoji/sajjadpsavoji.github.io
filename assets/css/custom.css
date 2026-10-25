@@ -138,14 +138,13 @@ body, input, select, textarea { color: #5f686f; }
 #main .blog-intro { max-width: 46em; }
 #main .blog-empty { font-style: italic; }
 
-/* Each story's picture sits in the same 16:9 frame (the image is letterboxed on
-   a light grey, never cropped), so the cards line up whatever the figure's shape. */
+/* Each story's picture is a 3:1 banner (Prism cuts it to 1200x400), the shape of
+   the pictures on the Projects page, so the blog cards match those cards. */
 #main .blog-posts > article > a.image { display: block; }
 #main .blog-posts > article > a.image img {
 	width: 100%;
-	aspect-ratio: 16 / 9;
-	object-fit: contain;
-	background: #f5f7f8;
+	aspect-ratio: 3 / 1;
+	object-fit: cover;
 }
 #main .blog-meta {
 	margin: 0.9em 0 0.15em 0;
