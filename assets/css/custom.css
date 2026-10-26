@@ -155,8 +155,9 @@ body, input, select, textarea { color: #5f686f; }
 }
 #main .blog-posts > article h3 { margin-top: 0.2em; }
 
-/* "Read it on" and one button per platform, each with the platform's mark. The
-   marks use currentColor, so they turn white with the label on hover. */
+/* "Read it on" and one button per platform, each with the platform's mark. On
+   hover a button fills with the platform's own color; the mark uses currentColor,
+   so it changes with the label. */
 #main ul.blog-links {
 	flex-wrap: wrap;
 	align-items: center;
@@ -172,6 +173,33 @@ body, input, select, textarea { color: #5f686f; }
 	padding: 0 1.3em;
 }
 #main .blog-icon { width: 1.6em; height: 1.6em; flex: none; }
+#main .blog-links .button { transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+#main .blog-links .blog-medium:hover, #main .blog-links .blog-medium:focus { background-color: #000000; box-shadow: inset 0 0 0 2px #000000; color: #ffffff !important; }
+#main .blog-links .blog-substack:hover, #main .blog-links .blog-substack:focus { background-color: #ff6719; box-shadow: inset 0 0 0 2px #ff6719; color: #ffffff !important; }
+#main .blog-links .blog-huggingface:hover, #main .blog-links .blog-huggingface:focus { background-color: #ffd21e; box-shadow: inset 0 0 0 2px #ffd21e; color: #000000 !important; }
+#main .blog-links .blog-x:hover, #main .blog-links .blog-x:focus { background-color: #000000; box-shadow: inset 0 0 0 2px #000000; color: #ffffff !important; }
+
+/* The bar of page numbers under the stories (assets/js/blog.js, six stories a page). */
+#main .blog-pages { margin-top: 1em; text-align: center; }
+
+/* Header icons drawn as SVG (assets/icons.svg) for the platforms Font Awesome 5
+   doesn't have, sized to sit with the font icons. */
+ul.icons li .svg-icon svg {
+	width: 1.2em;
+	height: 1.2em;
+	fill: currentColor;
+	vertical-align: -0.2em;
+}
+/* The Hugging Face mark is finely drawn, so it is drawn a little larger. */
+ul.icons li .svg-icon[title="Hugging Face"] svg { width: 1.4em; height: 1.4em; vertical-align: -0.3em; }
+/* Ten header icons: on phones, close them up so they clear the menu button. */
+@media screen and (max-width: 736px) {
+	#header .icons li { padding-right: 0.55em; }
+}
+@media screen and (max-width: 400px) {
+	#header .icons { font-size: 0.85em; }
+	#header .icons li { padding-right: 0.45em; }
+}
 
 /* A story opened from a link to its entry (/blog#name) shows the hover look. */
 #main .blog-posts > article:target {
