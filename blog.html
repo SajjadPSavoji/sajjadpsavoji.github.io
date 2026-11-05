@@ -59,7 +59,7 @@
 									<!-- prism:blog -->
 									<div class="posts blog-posts">
 										<article id="claude-opus-4">
-											<a href="https://medium.com/@sajjadpakdamansavoji/claude-opus-4-5-and-gpt-5-6-sol-stayed-near-baseline-on-short-contexts-so-why-pay-for-256k-41f69cdbe3b3" class="image"><img src="images/blog/claude-opus-4.jpg" alt="On SWE-bench Verified, best EoCC beats the full-history baseline for both models, while SAC roughly matches it for Opus 4.5 and trails by 2.0 points for GPT 5.6 Sol. Diagram: made for this article from the arXiv paper &#x27;You don&#x27;t need long context&#x27; (Table 2)." loading="lazy" /></a>
+											<a href="https://medium.com/@sajjadpakdamansavoji/claude-opus-4-5-and-gpt-5-6-sol-stayed-near-baseline-on-short-contexts-so-why-pay-for-256k-41f69cdbe3b3" class="image"><img src="images/blog/claude-opus-4.jpg" alt="Token latency, throughput and memory footprint of several open-source coding models on an NVIDIA DGX Spark, plotted against input context length. Later tokens take about 2x longer for several models. Figure 2 from arXiv 2611.05306." loading="lazy" /></a>
 											<p class="blog-meta">November 5, 2026 · Deep dive</p>
 											<h3>Claude Opus 4.5 and GPT 5.6 Sol Stayed Near Baseline on Short Contexts, So Why Pay for 256K?</h3>
 											<p>A new arXiv paper argues that long-horizon and long-input agent tasks can be done with short contexts. It uses frequent compaction and selective reading, and reports little or no accuracy loss for Claude Opus 4.5 and GPT 5.6 Sol across 13 benchmarks. Serving a 16K window instead of 256K decodes up to 7x more tokens per second for Qwen 3 Coder Next, which makes handoff-state design the key engineering question for agent builders.</p>
