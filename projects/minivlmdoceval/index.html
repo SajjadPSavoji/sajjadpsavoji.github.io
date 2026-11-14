@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html class="pp-js-off" lang="en">
+	<head>
+		<title>MiniVLMDocEval: Are Sub-1B Vision-Language Models Ready for Documents? | Sajjad Pakdamansavoji</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="A reproducible evaluation of six open sub-1B vision-language models on five document benchmarks, a diagnosis of where they break, and a pre-registered improvement study." />
+		<meta property="og:title" content="MiniVLMDocEval: Are Sub-1B Vision-Language Models Ready for Documents?" />
+		<meta property="og:description" content="A reproducible evaluation of six open sub-1B vision-language models on five document benchmarks, a diagnosis of where they break, and a pre-registered improvement study." />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://sajjadpsavoji.github.io/projects/minivlmdoceval/" />
+		<meta property="og:image" content="https://sajjadpsavoji.github.io/projects/minivlmdoceval/img/fig_pareto.png" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/custom.css" />
+		<link rel="stylesheet" href="../assets/project.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<!-- Header -->
+								<header id="header">
+									<div class="navig">
+										<a href="../../index.html" class="navig">    About </a>|
+										<a href="../../projects.html" class="navig">Projects </a>|
+										<a href="../../talks.html" class="navig">Talks </a>|
+										<a href="../../publications.html" class="navig">Publication </a>|
+										<a href="../../blog.html" class="navig">Blog </a>|
+										<a href="../../contact.html" class="navig">Contact </a>
+									</div>
+
+									<ul class="icons">
+										<li><a href="https://scholar.google.com/citations?user=DZzLzNwAAAAJ&hl=en" class="icon solid fa-graduation-cap" title="Google Scholar"><span class="label">Google Scholar</span></a></li>
+										<li><a href="https://github.com/SajjadPSavoji" class="icon brands fa-github" title="GitHub"><span class="label">GitHub</span></a></li>
+										<li><a href="https://huggingface.co/savoji" class="icon svg-icon" title="Hugging Face"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-huggingface"></use></svg><span class="label">Hugging Face</span></a></li>
+										<li><a href="https://www.linkedin.com/in/sajjadpsavoji/" class="icon brands fa-linkedin" title="LinkedIn"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://x.com/saavoji" class="icon svg-icon" title="X"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-x"></use></svg><span class="label">X</span></a></li>
+										<li><a href="https://medium.com/@sajjadpakdamansavoji" class="icon svg-icon" title="Medium"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-medium"></use></svg><span class="label">Medium</span></a></li>
+										<li><a href="https://sajjadpakdamansavoji.substack.com" class="icon svg-icon" title="Substack"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-substack"></use></svg><span class="label">Substack</span></a></li>
+										<li><a href="mailto:sj.pakdaman.edu@gmail.com" class="icon fa-envelope" title="Email"><span class="label">Email</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Project -->
+								<section class="pp-page">
+									<p class="pp-crumb"><a href="../../projects.html">&larr; All projects</a></p>
+<header class="pp-hero">
+	<h1>MiniVLMDocEval: Are Sub-1B VLMs Ready for Documents?</h1>
+	<p class="pp-sub">Six open vision&ndash;language models under one billion parameters, five document benchmarks, one matched protocol. Which tiny model should you build on, where exactly does it break, and can a targeted fine-tune fix it without breaking something else?</p>
+	<ul class="pp-chips">
+		<li class="pp-chip-accent">Independent research · 2026</li>
+		<li>VLMEvalKit</li>
+		<li>LoRA · PEFT · TRL</li>
+		<li>Hugging Face</li>
+	</ul>
+	<ul class="actions">
+		<li><a href="https://github.com/SajjadPSavoji/MiniVLMDocEval" class="button primary small">Code</a></li>
+		<li><a href="https://github.com/SajjadPSavoji/MiniVLMDocEval/blob/main/technical_report/report.pdf" class="button small">Technical report</a></li>
+		<li><a href="https://medium.com/@sajjadpakdamansavoji/your-sign-to-build-on-sub-1b-vlms-2d2dcd08350a" class="button small">Blog post</a></li>
+		<li><a href="https://huggingface.co/datasets/savoji/minivlm-tablevqa-sft" class="button small">Dataset</a></li>
+	</ul>
+</header>
+
+<div class="pp-stats pp-reveal">
+	<div class="pp-stat"><span class="pp-num">6</span><span class="pp-lbl">generalist VLMs, 0.45&ndash;0.9B parameters</span></div>
+	<div class="pp-stat"><span class="pp-num">5</span><span class="pp-lbl">benchmarks, from reading text to answering over tables</span></div>
+	<div class="pp-stat"><span class="pp-num">70.3</span><span class="pp-lbl">best mean score: Qwen3.5-0.8B, winning 3 of 5</span></div>
+	<div class="pp-stat"><span class="pp-num">N = 1000</span><span class="pp-lbl">seed-42 subsets, greedy decoding, 16-bit, 128-token cap</span></div>
+</div>
+
+<section class="pp-section pp-reveal">
+	<h2>A diagnostic ladder</h2>
+	<p class="pp-lead">The benchmarks are ordered so each rung adds one skill. A model that fails high on the ladder but passes lower rungs tells you which skill is missing.</p>
+	<ol class="pp-steps">
+		<li><strong>OCRBench</strong>Recognition: can it read the text at all?</li>
+		<li><strong>DocVQA</strong>Extraction: find an answer on a scanned page.</li>
+		<li><strong>ChartQA</strong>Numeric: read values and trends off charts.</li>
+		<li><strong>InfoVQA</strong>Layout: reason over dense infographics.</li>
+		<li><strong>TableVQA</strong>Tabular: look up and aggregate over rendered tables.</li>
+	</ol>
+</section>
+
+<section class="pp-section pp-reveal">
+	<h2>Leaderboard</h2>
+	<div class="pp-demo">
+		<div class="pp-demo-head"><h3>Six models, five benchmarks</h3><span class="pp-badge">Interactive</span></div>
+		<p class="pp-hint">Click a column header to sort. Pick a benchmark below to chart it. Scores are each benchmark's native metric on a 0&ndash;100 scale.</p>
+		<div class="pp-table-wrap"><table data-sortable id="mv-table"></table></div>
+		<div class="pp-seg" id="mv-bench"></div>
+		<div class="pp-chart" id="mv-bars"></div>
+	</div>
+</section>
+
+<section class="pp-section pp-reveal">
+	<h2>Accuracy vs. speed</h2>
+	<div class="pp-two">
+		<div class="pp-chart" id="mv-pareto"></div>
+		<div>
+			<p><strong>Architecture beats parameter count.</strong> The smallest model, LFM2.5-VL at 0.45B, outranks both 0.9B models, wins ChartQA, and is about five times faster than Qwen3.5. LFM2.5-VL and Qwen3.5 own the Pareto front; FastVLM is dominated on both axes.</p>
+			<p><strong>Resolution strategy is the lever.</strong> How a model tiles or compresses the page image drives both accuracy and latency more than scale does. FastVLM's aggressive token compression is why it collapses on OCRBench (26.2) despite a high-resolution encoder.</p>
+			<p class="pp-small pp-muted">Latency is mean seconds per sample, indicative only (mixed T4/L4 GPUs), so only the ordering is robust. Hover a point for details.</p>
+		</div>
+	</div>
+</section>
+
+<section class="pp-section pp-reveal">
+	<h2>The gap, localised</h2>
+	<div class="pp-two">
+		<div>
+			<p>No model passes 50.1 on TableVQA, so tables are the frontier. Splitting the benchmark into its four sub-domains shows the best model's weakness is <strong>plain visual lookup over Wikipedia-style tables</strong>, not numbers: Qwen3.5 scores 84.0 on financial tables but 27.8 on lookup. That corrects a common assumption in the table-QA literature, and since lookup is roughly half the benchmark, it is where the mean is lost.</p>
+		</div>
+		<div class="pp-chart" id="mv-sub"></div>
+	</div>
+</section>
+
+<section class="pp-section pp-reveal">
+	<h2>Part 2: a fix that was rejected, on purpose</h2>
+	<div class="pp-demo">
+		<div class="pp-demo-head"><h3>LoRA on table lookup vs. a pre-registered no-regression gate</h3><span class="pp-badge">Interactive</span></div>
+		<p class="pp-hint">Before training, I fixed a rule: the adapter ships only if it improves lookup without hurting any protected benchmark. Same seed-42 subsets before and after.</p>
+		<div class="pp-chart" id="mv-gate"></div>
+		<div class="pp-readout" id="mv-gate-read"></div>
+	</div>
+	<div class="pp-two">
+		<div class="pp-callout pp-honest"><p><strong>The adapter failed the gate.</strong> TableVQA fell from 50.1 to 19.6 and DocVQA from 89.3 to 50.8: catastrophic forgetting. The diagnosis is an answer-style mismatch: verbose training answers versus short-answer scoring. The report gives a corrected recipe.</p></div>
+		<p>A gate that rejects a degraded model is the protocol working as designed. The training set and the failed adapter are published anyway (<a href="https://huggingface.co/savoji/qwen3.5-0.8b-tablevqa-lora">LoRA adapter</a>), so the negative result can be checked rather than taken on trust.</p>
+	</div>
+</section>
+
+<section class="pp-section pp-reveal">
+	<h2>Examples</h2>
+	<div class="pp-demo">
+		<div class="pp-demo-head"><h3>What Qwen3.5-0.8B gets right, and wrong</h3><span class="pp-badge">Browse</span></div>
+		<div class="pp-seg" id="mv-exset"><button data-value="ok" aria-pressed="true">Correct, across the ladder</button><button data-value="bad">Failures on table lookup</button></div>
+		<div class="pp-seg" id="mv-ex"></div>
+		<div class="pp-two">
+			<figure class="pp-fig"><img id="mv-ex-img" src="" alt="Benchmark example" data-zoom /></figure>
+			<div id="mv-ex-txt"></div>
+		</div>
+	</div>
+</section>
+
+<section class="pp-section pp-reveal">
+	<h2>Reproducibility</h2>
+	<p>Everything is seeded and pinned: VLMEvalKit at a fixed commit (cloned, never forked), per-model precision, fixed N and seed, and greedy decoding. Two incompatible <span class="pp-mono">transformers</span> versions are handled as two phases of a single <span class="pp-mono">reproduce.sh</span> run or Colab notebook, and results merge into one comparison table. I contributed wrappers for three models the harness lacked: FastVLM-0.5B, Qwen3.5-0.8B and LFM2.5-VL-450M.</p>
+</section>
+									<nav class="pp-pager" aria-label="More projects">
+										<a class="pp-prev" href="../citibike-nyc/"><small>&larr; Previous project</small>CitiBike NYC Analytics</a>
+										<a class="pp-next" href="../awesome-wsp/"><small>Next project &rarr;</small>Awesome Weight-Space Programming</a>
+									</nav>
+								</section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../../index.html">Homepage</a></li>
+										<li><a href="../../projects.html">Projects</a></li>
+										<li><a href="../../talks.html">Talks</a></li>
+										<li><a href="../../publications.html">Publications</a></li>
+										<li><a href="../../blog.html">Blog</a></li>
+										<li><a href="../../contact.html">Contact</a></li>
+									</ul>
+								</nav>
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>If our research interests overlap, or you have a business idea worth exploring, I would be glad to hear from you. The easiest ways to reach me are the <a href="../../contact.html">contact form</a> or a DM on <a href="https://www.linkedin.com/in/sajjadpsavoji/">LinkedIn</a>.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:sj.pakdaman.edu@gmail.com">sj.pakdaman.edu@gmail.com</a></li>
+									</ul>
+								</section>
+						</div>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/browser.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/breakpoints.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/util.js" type="text/javascript"></script>
+			<script src="../../assets/js/main.js" type="text/javascript"></script>
+			<script src="../assets/project.js" type="text/javascript"></script>
+<script>
+(function () {
+	var B = ["ChartQA", "DocVQA", "InfoVQA", "OCRBench", "TableVQA"];
+	var M = [
+		{ m: "Qwen3.5-0.8B", p: 0.8, s: [70.8, 89.3, 62.3, 79.2, 50.1], mean: 70.3, lat: 1.28 },
+		{ m: "InternVL3-1B", p: 0.9, s: [68.8, 80.8, 54.2, 79.4, 33.5], mean: 63.3, lat: 1.19 },
+		{ m: "LFM2.5-VL-450M", p: 0.45, s: [73.1, 77.2, 41.3, 67.8, 40.2], mean: 59.9, lat: 0.24 },
+		{ m: "LLaVA-OneVision-0.5B", p: 0.9, s: [60.0, 70.4, 39.0, 60.2, 34.4], mean: 52.8, lat: 0.83 },
+		{ m: "SmolVLM2-500M", p: 0.5, s: [60.4, 67.8, 27.4, 61.0, 30.3], mean: 49.4, lat: 0.77 },
+		{ m: "FastVLM-0.5B", p: 0.8, s: [44.3, 63.6, 32.5, 26.2, 17.5], mean: 36.8, lat: 3.86 }
+	];
+	var best = B.map(function (_, j) { return Math.max.apply(null, M.map(function (r) { return r.s[j]; })); });
+	var t = document.getElementById("mv-table");
+	t.innerHTML = "<thead><tr><th>Model</th><th data-sort=\"num\">Params (B)</th>" + B.map(function (b) { return '<th data-sort="num">' + b + "</th>"; }).join("") +
+		'<th data-sort="num" aria-sort="descending">Mean</th><th data-sort="num">Latency (s)</th></tr></thead><tbody>' +
+		M.map(function (r) {
+			return "<tr><th>" + r.m + "</th><td>" + r.p + "</td>" + r.s.map(function (v, j) { return "<td" + (v === best[j] ? ' class="pp-best"' : "") + ">" + v.toFixed(1) + "</td>"; }).join("") +
+				'<td class="' + (r.mean === 70.3 ? "pp-best" : "") + '">' + r.mean.toFixed(1) + "</td><td>" + r.lat.toFixed(2) + "</td></tr>";
+		}).join("") + "</tbody>";
+
+	var seg = document.getElementById("mv-bench");
+	["Mean"].concat(B).forEach(function (b, i) { var x = document.createElement("button"); x.setAttribute("data-value", i - 1); x.textContent = b; if (!i) x.setAttribute("aria-pressed", "true"); seg.appendChild(x); });
+	PP.seg(seg, function (v) {
+		v = +v;
+		var vals = M.map(function (r) { return v < 0 ? r.mean : r.s[v]; }), top = Math.max.apply(null, vals);
+		PP.bars(document.getElementById("mv-bars"), {
+			categories: M.map(function (r) { return r.m.replace("-OneVision", "-OV"); }), series: [{ name: v < 0 ? "Mean" : B[v], values: vals }],
+			min: 0, max: 100, height: 270, highlight: vals.indexOf(top), fmt: function (x) { return (+x).toFixed(1); }, label: "Scores"
+		});
+	});
+
+	(function pareto() {
+		var root = document.getElementById("mv-pareto"), W = PP.width(root), H = 330, m = { t: 16, r: 18, b: 44, l: 46 };
+		var svg = PP.svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "Accuracy versus latency" }, root);
+		var lx = function (v) { return m.l + (Math.log(v) - Math.log(0.18)) / (Math.log(5) - Math.log(0.18)) * (W - m.l - m.r); };
+		var ly = function (v) { return m.t + (1 - (v - 30) / 45) * (H - m.t - m.b); };
+		[0.25, 0.5, 1, 2, 4].forEach(function (v) { PP.svgEl("line", { x1: lx(v), x2: lx(v), y1: m.t, y2: H - m.b, class: "pp-grid" }, svg); PP.svgEl("text", { x: lx(v), y: H - m.b + 16, "text-anchor": "middle" }, svg).textContent = v + "s"; });
+		[30, 45, 60, 75].forEach(function (v) { PP.svgEl("line", { x1: m.l, x2: W - m.r, y1: ly(v), y2: ly(v), class: "pp-grid" }, svg); PP.svgEl("text", { x: m.l - 6, y: ly(v) + 4, "text-anchor": "end" }, svg).textContent = v; });
+		PP.svgEl("text", { x: (W + m.l) / 2, y: H - 6, "text-anchor": "middle" }, svg).textContent = "mean latency per sample (log scale, lower is better)";
+		PP.svgEl("text", { x: 12, y: H / 2, transform: "rotate(-90 12 " + H / 2 + ")", "text-anchor": "middle" }, svg).textContent = "mean score";
+		var front = ["LFM2.5-VL-450M", "Qwen3.5-0.8B"];
+		PP.svgEl("path", { d: "M" + lx(0.24) + " " + ly(59.9) + " L" + lx(1.28) + " " + ly(70.3), stroke: "#2d709c", "stroke-dasharray": "5 5", fill: "none" }, svg);
+		M.forEach(function (r) {
+			var on = front.indexOf(r.m) >= 0, c = PP.svgEl("circle", { cx: lx(r.lat), cy: ly(r.mean), r: 5 + r.p * 6, fill: on ? "#2d709c" : "#a9b4bb", "fill-opacity": 0.85, stroke: "#fff", "stroke-width": 1.5 }, svg);
+			PP.bindTip(c, "<b>" + r.m + "</b><br>mean " + r.mean + " · " + r.lat + " s/sample · " + r.p + "B params");
+			var right = lx(r.lat) < W - 150;
+			PP.svgEl("text", { x: lx(r.lat) + (right ? 12 : -12), y: ly(r.mean) + 4, "text-anchor": right ? "start" : "end", style: "font-size:11px;font-weight:600;fill:#3d4449" }, svg).textContent = r.m;
+		});
+	})();
+
+	PP.bars(document.getElementById("mv-sub"), {
+		categories: ["VWTQ", "VWTQ-Syn", "VTabFact", "FinTabNetQA"], series: [{ name: "Qwen3.5-0.8B", values: [27.8, 33.1, 55.5, 84.0] }],
+		min: 0, max: 100, height: 260, highlight: 0, yLabel: "accuracy", fmt: function (x) { return (+x).toFixed(1); }, label: "TableVQA sub-domains"
+	});
+
+	var G = { cats: ["TableVQA", "VWTQ", "VWTQ-Syn", "VTabFact", "FinTabNetQA", "OCRBench", "DocVQA", "ChartQA", "InfoVQA"],
+		before: [50.1, 27.8, 33.1, 55.5, 84.0, 79.2, 89.3, 70.8, 62.3], after: [19.6, 0.6, 0.0, 62.4, 15.4, 77.4, 50.8, 75.3, 27.8] };
+	PP.bars(document.getElementById("mv-gate"), {
+		categories: G.cats, series: [{ name: "Baseline", values: G.before, color: "#2d709c" }, { name: "After LoRA", values: G.after, color: "#c0504d" }],
+		min: 0, max: 100, height: 300, labels: false, fmt: function (x) { return (+x).toFixed(1); }, label: "Before and after adaptation"
+	});
+	var up = 0, down = 0; G.before.forEach(function (b, i) { if (G.after[i] > b) up++; else down++; });
+	document.getElementById("mv-gate-read").innerHTML = "<span>Improved <b>" + up + "</b></span><span>Regressed <b>" + down + "</b></span><span>Gate <b style=\"color:#c0504d\">failed: adapter not shipped</b></span>";
+
+	var EX = {
+		ok: [["OCRBench_0.png", "OCRBench", "What is written in the image?", "CENTRE", "centre", true],
+		     ["DocVQA_VAL_49168.png", "DocVQA", "What time is the ‘coffee break’?", "11:14 to 11:39 a.m.", "11:14 to 11:39 a.m.", true],
+		     ["ChartQA_TEST_9.png", "ChartQA", "What was the 4th most popular emotion?", "Inspired", "Inspired", true],
+		     ["InfoVQA_VAL_98322.png", "InfoVQA", "Which platform is suitable for software providers?", "linkedin", "LinkedIn", true],
+		     ["TableVQABench_DOV_2014_page_13_pdf149186_1.png", "TableVQA (financial)", "What is the end market for the Engineered Systems segment?", "Printing & Identification, Industrial…", "Printing & Identification Industrials", true]],
+		bad: [["TableVQA_nu_1740.png", "VWTQ", "How many players attended Wake Forest University before being drafted?", "2", "1", false],
+		      ["TableVQA_nu_2507.png", "VWTQ", "How many years did Davis Love III rank in the top 10, but not have a PGA Tour win?", "3", "1991", false],
+		      ["TableVQA_nu_1198.png", "VWTQ", "What is the total number of races Olga Tereshkova has won?", "2", "1", false],
+		      ["TableVQA_nu_2030.png", "VWTQ-Syn", "Who is the next added player after January of 2010 to the roster?", "Rachid Lajane", "Guntur Djafril", false],
+		      ["TableVQA_nu_1833.png", "VWTQ-Syn", "What column comes before the Major Centres division?", "State/Territory Women's Division", "State/Territory Men's Division", false],
+		      ["TableVQA_nu_3186.png", "VWTQ", "Who is ranked directly before Jeff Lastennet?", "Adam Kszczot", "Anis Ananenko", false]]
+	};
+	var set = "ok", exSeg = document.getElementById("mv-ex");
+	function showEx(i) {
+		var e = EX[set][i];
+		document.getElementById("mv-ex-img").src = "img/" + e[0];
+		document.getElementById("mv-ex-img").alt = e[1] + " example";
+		document.getElementById("mv-ex-txt").innerHTML = '<p class="pp-small pp-muted" style="margin-bottom:.3em">' + e[1] + "</p><p><strong>Q:</strong> " + e[2] + "</p>" +
+			'<div class="pp-readout"><span>Gold <b>' + e[3] + "</b></span><span>Qwen3.5 <b style=\"color:" + (e[5] ? "#2e8b57" : "#c0504d") + "\">" + e[4] + "</b></span></div>" +
+			(e[5] ? "" : '<p class="pp-small" style="margin-top:1em">Counting, adjacency and row-order questions over dense tables: the model reads the cells but loses track of which row or column it is in.</p>');
+	}
+	function buildEx() {
+		exSeg.innerHTML = "";
+		EX[set].forEach(function (e, i) { var b = document.createElement("button"); b.setAttribute("data-value", i); b.textContent = (i + 1) + ". " + e[1]; if (!i) b.setAttribute("aria-pressed", "true"); exSeg.appendChild(b); });
+		PP.seg(exSeg, function (v) { showEx(+v); });
+	}
+	PP.seg(document.getElementById("mv-exset"), function (v) { set = v; buildEx(); });
+})();
+</script>
+	</body>
+</html>

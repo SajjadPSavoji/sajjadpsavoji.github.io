@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html class="pp-js-off" lang="en">
+	<head>
+		<title>AC-GAN: Conditional Synthesis with an Auxiliary Classifier | Sajjad Pakdamansavoji</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="An AC-GAN on CIFAR-10: the discriminator also classifies, giving class-controlled generation. Interactive diagram and per-class results." />
+		<meta property="og:title" content="AC-GAN: Conditional Synthesis with an Auxiliary Classifier" />
+		<meta property="og:description" content="An AC-GAN on CIFAR-10: the discriminator also classifies, giving class-controlled generation. Interactive diagram and per-class results." />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://sajjadpsavoji.github.io/projects/acgan/" />
+		<meta property="og:image" content="https://sajjadpsavoji.github.io/projects/acgan/img/acgan.png" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/custom.css" />
+		<link rel="stylesheet" href="../assets/project.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<!-- Header -->
+								<header id="header">
+									<div class="navig">
+										<a href="../../index.html" class="navig">    About </a>|
+										<a href="../../projects.html" class="navig">Projects </a>|
+										<a href="../../talks.html" class="navig">Talks </a>|
+										<a href="../../publications.html" class="navig">Publication </a>|
+										<a href="../../blog.html" class="navig">Blog </a>|
+										<a href="../../contact.html" class="navig">Contact </a>
+									</div>
+
+									<ul class="icons">
+										<li><a href="https://scholar.google.com/citations?user=DZzLzNwAAAAJ&hl=en" class="icon solid fa-graduation-cap" title="Google Scholar"><span class="label">Google Scholar</span></a></li>
+										<li><a href="https://github.com/SajjadPSavoji" class="icon brands fa-github" title="GitHub"><span class="label">GitHub</span></a></li>
+										<li><a href="https://huggingface.co/savoji" class="icon svg-icon" title="Hugging Face"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-huggingface"></use></svg><span class="label">Hugging Face</span></a></li>
+										<li><a href="https://www.linkedin.com/in/sajjadpsavoji/" class="icon brands fa-linkedin" title="LinkedIn"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://x.com/saavoji" class="icon svg-icon" title="X"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-x"></use></svg><span class="label">X</span></a></li>
+										<li><a href="https://medium.com/@sajjadpakdamansavoji" class="icon svg-icon" title="Medium"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-medium"></use></svg><span class="label">Medium</span></a></li>
+										<li><a href="https://sajjadpakdamansavoji.substack.com" class="icon svg-icon" title="Substack"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-substack"></use></svg><span class="label">Substack</span></a></li>
+										<li><a href="mailto:sj.pakdaman.edu@gmail.com" class="icon fa-envelope" title="Email"><span class="label">Email</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Project -->
+								<section class="pp-page">
+									<p class="pp-crumb"><a href="../../projects.html">&larr; All projects</a></p>
+<header class="pp-hero">
+	<h1>AC-GAN: Class-Conditional Synthesis with an Auxiliary Classifier</h1>
+	<p class="pp-sub">Make the discriminator do two jobs: tell real from fake, <em>and</em> say which class the image belongs to. The generator then has to produce images that are both realistic and recognisably of the requested class.</p>
+	<ul class="pp-chips">
+		<li class="pp-chip-accent">Conditional generation</li>
+		<li>Neural Networks &amp; Deep Learning course</li>
+		<li>University of Tehran · 2020</li>
+		<li>Keras · CIFAR-10</li>
+	</ul>
+	<ul class="actions">
+		<li><a href="https://github.com/SajjadPSavoji/Auxiliary-Classifier-GAN" class="button primary small">Code</a></li>
+		<li><a href="https://github.com/SajjadPSavoji/Auxiliary-Classifier-GAN/blob/master/NNDL_miniproj3_report.pdf" class="button small">Report (PDF)</a></li>
+	</ul>
+</header>
+
+<div class="pp-stats pp-reveal">
+	<div class="pp-stat"><span class="pp-num">2 heads</span><span class="pp-lbl">on the discriminator: source (real/fake) and class</span></div>
+	<div class="pp-stat"><span class="pp-num">L<sub>S</sub> + L<sub>C</sub></span><span class="pp-lbl">source loss plus class loss on real and generated images</span></div>
+	<div class="pp-stat"><span class="pp-num">10</span><span class="pp-lbl">CIFAR-10 classes on demand</span></div>
+</div>
+
+<section class="pp-section pp-reveal">
+	<h2>Where the label goes</h2>
+	<div class="pp-demo">
+		<div class="pp-demo-head"><h3>GAN vs. cGAN vs. AC-GAN</h3><span class="pp-badge">Interactive</span></div>
+		<p class="pp-hint">Switch models to see how the label y (orange) is wired in.</p>
+		<div data-gan-diagram="acgan"></div>
+	</div>
+	<p>AC-GAN (Odena et al., 2017) gives the label to the generator only. The discriminator sees an image alone and must output both P(real) and a class distribution. Training maximises the class log-likelihood L<sub>C</sub> for both networks, while D maximises and G minimises the usual source loss L<sub>S</sub>. The class head acts like a built-in critic that rewards generated images for being recognisable.</p>
+</section>
+
+<section class="pp-section pp-reveal">
+	<h2>Results by class</h2>
+	<div class="pp-demo">
+		<div class="pp-demo-head"><h3>Pick a class</h3><span class="pp-badge">Interactive</span></div>
+		<p class="pp-hint">Each column holds three samples generated for one label.</p>
+		<div data-class-grid data-src="img/acgan.png" data-alt="AC-GAN samples per CIFAR-10 class" data-start="0.0657" data-step="0.0974" data-width="0.086"></div>
+	</div>
+	<p>Compared with the <a href="../cgan/">conditional GAN</a> from the same project, the AC-GAN's samples are more colourful and the within-class rows look more alike, which is the familiar AC-GAN trade-off: the classification loss pushes samples toward easily classified, prototypical images, at some cost to diversity. The cGAN's samples vary more but drift further from their labels.</p>
+</section>
+									<nav class="pp-pager" aria-label="More projects">
+										<a class="pp-prev" href="../cgan/"><small>&larr; Previous project</small>Conditional GAN (cGAN)</a>
+										<a class="pp-next" href="../vae-mnist/"><small>Next project &rarr;</small>VAE (MNIST)</a>
+									</nav>
+								</section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../../index.html">Homepage</a></li>
+										<li><a href="../../projects.html">Projects</a></li>
+										<li><a href="../../talks.html">Talks</a></li>
+										<li><a href="../../publications.html">Publications</a></li>
+										<li><a href="../../blog.html">Blog</a></li>
+										<li><a href="../../contact.html">Contact</a></li>
+									</ul>
+								</nav>
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>If our research interests overlap, or you have a business idea worth exploring, I would be glad to hear from you. The easiest ways to reach me are the <a href="../../contact.html">contact form</a> or a DM on <a href="https://www.linkedin.com/in/sajjadpsavoji/">LinkedIn</a>.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:sj.pakdaman.edu@gmail.com">sj.pakdaman.edu@gmail.com</a></li>
+									</ul>
+								</section>
+						</div>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/browser.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/breakpoints.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/util.js" type="text/javascript"></script>
+			<script src="../../assets/js/main.js" type="text/javascript"></script>
+			<script src="../assets/project.js" type="text/javascript"></script>
+<script src="../assets/gan-diagram.js"></script>
+	</body>
+</html>

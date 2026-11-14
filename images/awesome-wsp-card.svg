@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-label="Awesome Weight-Space Programming: a curated, daily-updated list">
+  <rect width="800" height="420" fill="#f5f7f9"/>
+  <g stroke="#2d709c" stroke-opacity="0.18">
+    <line x1="470" y1="90" x2="600" y2="60"/><line x1="470" y1="90" x2="600" y2="150"/><line x1="470" y1="90" x2="600" y2="240"/>
+    <line x1="470" y1="200" x2="600" y2="60"/><line x1="470" y1="200" x2="600" y2="150"/><line x1="470" y1="200" x2="600" y2="240"/>
+    <line x1="470" y1="310" x2="600" y2="60"/><line x1="470" y1="310" x2="600" y2="150"/><line x1="470" y1="310" x2="600" y2="240"/>
+    <line x1="600" y1="60" x2="730" y2="150"/><line x1="600" y1="150" x2="730" y2="150"/><line x1="600" y1="240" x2="730" y2="150"/>
+  </g>
+  <line x1="470" y1="200" x2="600" y2="150" stroke="#e07b39" stroke-width="4"/>
+  <line x1="600" y1="150" x2="730" y2="150" stroke="#e07b39" stroke-width="4"/>
+  <g fill="#fff" stroke="#2d709c" stroke-width="2">
+    <circle cx="470" cy="90" r="14"/><circle cx="470" cy="200" r="14"/><circle cx="470" cy="310" r="14"/>
+    <circle cx="600" cy="60" r="14"/><circle cx="600" cy="150" r="14"/><circle cx="600" cy="240" r="14"/><circle cx="730" cy="150" r="14"/>
+  </g>
+  <text x="585" y="128" font-family="Open Sans, Arial, sans-serif" font-size="14" fill="#e07b39" font-weight="700">w ← w′</text>
+  <g font-family="Roboto Slab, Georgia, serif" fill="#3d4449">
+    <text x="48" y="120" font-size="34" font-weight="700">Awesome</text>
+    <text x="48" y="164" font-size="34" font-weight="700">Weight-Space</text>
+    <text x="48" y="208" font-size="34" font-weight="700">Programming</text>
+  </g>
+  <text x="48" y="256" font-family="Open Sans, Arial, sans-serif" font-size="17" fill="#5f686f">LLMs that read, edit and write</text>
+  <text x="48" y="280" font-family="Open Sans, Arial, sans-serif" font-size="17" fill="#5f686f">neural network weights directly</text>
+  <text x="48" y="340" font-family="Open Sans, Arial, sans-serif" font-size="15" fill="#2d709c" font-weight="700">600+ entries · updated daily</text>
+  <rect x="0" y="412" width="800" height="8" fill="#2d709c"/>
+</svg>

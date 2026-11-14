@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html class="pp-js-off" lang="en">
+	<head>
+		<title>Face Generation with RealNVP | Sajjad Pakdamansavoji</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="A RealNVP normalizing flow trained on CelebA, with an interactive affine coupling layer that bends a Gaussian into a new shape and inverts it exactly." />
+		<meta property="og:title" content="Face Generation with RealNVP" />
+		<meta property="og:description" content="A RealNVP normalizing flow trained on CelebA, with an interactive affine coupling layer that bends a Gaussian into a new shape and inverts it exactly." />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://sajjadpsavoji.github.io/projects/realnvp-faces/" />
+		<meta property="og:image" content="https://sajjadpsavoji.github.io/projects/realnvp-faces/img/mywork.png" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/custom.css" />
+		<link rel="stylesheet" href="../assets/project.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<!-- Header -->
+								<header id="header">
+									<div class="navig">
+										<a href="../../index.html" class="navig">    About </a>|
+										<a href="../../projects.html" class="navig">Projects </a>|
+										<a href="../../talks.html" class="navig">Talks </a>|
+										<a href="../../publications.html" class="navig">Publication </a>|
+										<a href="../../blog.html" class="navig">Blog </a>|
+										<a href="../../contact.html" class="navig">Contact </a>
+									</div>
+
+									<ul class="icons">
+										<li><a href="https://scholar.google.com/citations?user=DZzLzNwAAAAJ&hl=en" class="icon solid fa-graduation-cap" title="Google Scholar"><span class="label">Google Scholar</span></a></li>
+										<li><a href="https://github.com/SajjadPSavoji" class="icon brands fa-github" title="GitHub"><span class="label">GitHub</span></a></li>
+										<li><a href="https://huggingface.co/savoji" class="icon svg-icon" title="Hugging Face"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-huggingface"></use></svg><span class="label">Hugging Face</span></a></li>
+										<li><a href="https://www.linkedin.com/in/sajjadpsavoji/" class="icon brands fa-linkedin" title="LinkedIn"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://x.com/saavoji" class="icon svg-icon" title="X"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-x"></use></svg><span class="label">X</span></a></li>
+										<li><a href="https://medium.com/@sajjadpakdamansavoji" class="icon svg-icon" title="Medium"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-medium"></use></svg><span class="label">Medium</span></a></li>
+										<li><a href="https://sajjadpakdamansavoji.substack.com" class="icon svg-icon" title="Substack"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-substack"></use></svg><span class="label">Substack</span></a></li>
+										<li><a href="mailto:sj.pakdaman.edu@gmail.com" class="icon fa-envelope" title="Email"><span class="label">Email</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Project -->
+								<section class="pp-page">
+									<p class="pp-crumb"><a href="../../projects.html">&larr; All projects</a></p>
+<header class="pp-hero">
+	<h1>Face Generation with RealNVP</h1>
+	<p class="pp-sub">A normalizing flow learns an invertible map between faces and plain Gaussian noise. Because every step can be undone exactly, the model gives the true likelihood of an image, not a bound or a guess.</p>
+	<ul class="pp-chips">
+		<li class="pp-chip-accent">Normalizing flows</li>
+		<li>EECS 6327 · Probabilistic Models in ML</li>
+		<li>York University</li>
+		<li>PyTorch · CelebA</li>
+	</ul>
+	<ul class="actions">
+		<li><a href="https://github.com/SajjadPSavoji/RealNVPFaces" class="button primary small">Code</a></li>
+		<li><a href="https://github.com/SajjadPSavoji/RealNVPFaces/blob/main/Report/icml2020_style.pdf" class="button small">Report (PDF)</a></li>
+	</ul>
+</header>
+
+<div class="pp-stats pp-reveal">
+	<div class="pp-stat"><span class="pp-num">50</span><span class="pp-lbl">epochs, about 2 min each</span></div>
+	<div class="pp-stat"><span class="pp-num">100 min</span><span class="pp-lbl">total training, between DCGAN and the VAE</span></div>
+	<div class="pp-stat"><span class="pp-num">Exact</span><span class="pp-lbl">log-likelihood objective, no discriminator, no ELBO</span></div>
+	<div class="pp-stat"><span class="pp-num">Adamax</span><span class="pp-lbl">lr 1e-3, batch 64, base width 32</span></div>
+</div>
+
+<section class="pp-section pp-reveal">
+	<h2>The key trick: affine coupling</h2>
+	<p class="pp-lead">Split the input in two halves. Leave one half unchanged and use it to compute a scale <em>s</em> and a shift <em>t</em> for the other half. The step is trivially invertible (subtract <em>t</em>, divide by e<sup>s</sup>), and its Jacobian is triangular, so the log-determinant is simply the sum of <em>s</em>. Stack many such layers, swapping which half is frozen, and the map becomes very expressive.</p>
+	<div class="pp-demo" id="nvp-demo">
+		<div class="pp-demo-head"><h3>Two coupling layers on a 2-D Gaussian</h3><span class="pp-badge">Interactive</span></div>
+		<p class="pp-hint">Layer 1: y<sub>2</sub> = x<sub>2</sub>&middot;e<sup>s(x<sub>1</sub>)</sup> + t(x<sub>1</sub>). Layer 2 swaps roles: y<sub>1</sub> = x<sub>1</sub>&middot;e<sup>s(y<sub>2</sub>)</sup> + t(y<sub>2</sub>). Here s(u) = a&middot;tanh(u) and t(u) = b&middot;u&sup2; for layer 1, and c, d for layer 2. A real flow learns s and t with neural networks.</p>
+		<div class="pp-controls">
+			<label>a <input type="range" id="nvp-a" min="-1" max="1" step="0.05" value="0.5" /><output id="nvp-a-o">0.5</output></label>
+			<label>b <input type="range" id="nvp-b" min="-1" max="1" step="0.05" value="0.6" /><output id="nvp-b-o">0.6</output></label>
+			<label>c <input type="range" id="nvp-c" min="-1" max="1" step="0.05" value="-0.3" /><output id="nvp-c-o">-0.3</output></label>
+			<label>d <input type="range" id="nvp-d" min="-1" max="1" step="0.05" value="0.2" /><output id="nvp-d-o">0.2</output></label>
+		</div>
+		<div class="pp-seg" id="nvp-view"><button data-value="z" aria-pressed="false">Base noise z</button><button data-value="x" aria-pressed="true">After the flow</button><button data-value="inv">Flow, then inverse</button></div>
+		<div class="pp-chart pp-narrow" id="nvp-plot"></div>
+		<div class="pp-readout" id="nvp-read"></div>
+	</div>
+</section>
+
+<section class="pp-section pp-reveal">
+	<h2>Results</h2>
+	<div class="pp-two">
+		<figure class="pp-fig"><img src="img/mywork.png" data-zoom alt="A grid of faces sampled from the RealNVP model" /><figcaption>Faces sampled from my RealNVP after 50 epochs: draw z from a Gaussian and run the flow backwards.</figcaption></figure>
+		<div>
+			<p>Samples are sharp and show realistic skin, hair and lighting, with some warped faces where the flow has not learned the global structure. In the three-way comparison RealNVP was the sweet spot: about twice as slow as DCGAN but stable to train, and much sharper than the VAE.</p>
+			<div class="pp-callout"><p><strong>Why flows are attractive.</strong> Exact likelihoods make flows easy to evaluate and compare, and they support exact encoding of a real image into latent space, which GANs cannot do and VAEs only approximate.</p></div>
+		</div>
+	</div>
+</section>
+
+<section class="pp-section pp-reveal">
+	<h2>How it compares</h2>
+	<div data-faces-compare="realnvp"></div>
+</section>
+									<nav class="pp-pager" aria-label="More projects">
+										<a class="pp-prev" href="../dcgan-faces/"><small>&larr; Previous project</small>DCGAN Faces (CelebA)</a>
+										<a class="pp-next" href="../vae-faces/"><small>Next project &rarr;</small>VAE Faces (CelebA)</a>
+									</nav>
+								</section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../../index.html">Homepage</a></li>
+										<li><a href="../../projects.html">Projects</a></li>
+										<li><a href="../../talks.html">Talks</a></li>
+										<li><a href="../../publications.html">Publications</a></li>
+										<li><a href="../../blog.html">Blog</a></li>
+										<li><a href="../../contact.html">Contact</a></li>
+									</ul>
+								</nav>
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>If our research interests overlap, or you have a business idea worth exploring, I would be glad to hear from you. The easiest ways to reach me are the <a href="../../contact.html">contact form</a> or a DM on <a href="https://www.linkedin.com/in/sajjadpsavoji/">LinkedIn</a>.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:sj.pakdaman.edu@gmail.com">sj.pakdaman.edu@gmail.com</a></li>
+									</ul>
+								</section>
+						</div>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/browser.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/breakpoints.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/util.js" type="text/javascript"></script>
+			<script src="../../assets/js/main.js" type="text/javascript"></script>
+			<script src="../assets/project.js" type="text/javascript"></script>
+<script src="../assets/faces-compare.js"></script>
+<script>
+(function () {
+	var N = 700, Z = [], seed = 11, view = "x";
+	function r() { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }
+	for (var i = 0; i < N; i++) { var u = r() || 1e-9, v = r(); Z.push([Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v), Math.sqrt(-2 * Math.log(u)) * Math.sin(2 * Math.PI * v)]); }
+	function p(id) { return +document.getElementById(id).value; }
+	function flow(z, a, b, c, d) {
+		var s1 = a * Math.tanh(z[0]), y2 = z[1] * Math.exp(s1) + b * z[0] * z[0];
+		var s2 = c * Math.tanh(y2), y1 = z[0] * Math.exp(s2) + d * y2 * y2;
+		return { y: [y1, y2], logdet: s1 + s2 };
+	}
+	function inverse(y, a, b, c, d) {
+		var y2 = y[1], x1 = (y[0] - d * y2 * y2) / Math.exp(c * Math.tanh(y2));
+		var x2 = (y2 - b * x1 * x1) / Math.exp(a * Math.tanh(x1));
+		return [x1, x2];
+	}
+	function draw() {
+		var a = p("nvp-a"), b = p("nvp-b"), c = p("nvp-c"), d = p("nvp-d");
+		["a", "b", "c", "d"].forEach(function (k) { document.getElementById("nvp-" + k + "-o").value = p("nvp-" + k); });
+		var pts = [], ld = 0, err = 0;
+		Z.forEach(function (z) {
+			var f = flow(z, a, b, c, d); ld += f.logdet;
+			if (view === "z") pts.push(z);
+			else if (view === "x") pts.push(f.y);
+			else { var back = inverse(f.y, a, b, c, d); err = Math.max(err, Math.abs(back[0] - z[0]) + Math.abs(back[1] - z[1])); pts.push(back); }
+		});
+		var root = document.getElementById("nvp-plot"); root.innerHTML = "";
+		var W = 640, H = 360, R = 5, X = function (v) { return W / 2 + v * (H / 2 - 10) / R; }, Y = function (v) { return H / 2 - v * (H / 2 - 10) / R; };
+		var svg = PP.svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "Point cloud" }, root);
+		for (var g = -R; g <= R; g++) {
+			PP.svgEl("line", { x1: X(g), x2: X(g), y1: 0, y2: H, class: "pp-grid" }, svg);
+			PP.svgEl("line", { x1: X(-R * 2), x2: X(R * 2), y1: Y(g), y2: Y(g), class: "pp-grid" }, svg);
+		}
+		PP.svgEl("line", { x1: X(-R * 2), x2: X(R * 2), y1: Y(0), y2: Y(0), class: "pp-axis" }, svg);
+		PP.svgEl("line", { x1: X(0), x2: X(0), y1: 0, y2: H, class: "pp-axis" }, svg);
+		var col = view === "x" ? "#e07b39" : "#2d709c";
+		pts.forEach(function (q, k) {
+			PP.svgEl("circle", { cx: X(q[0]).toFixed(1), cy: Y(q[1]).toFixed(1), r: 2.2, fill: col, "fill-opacity": 0.55 }, svg);
+		});
+		var read = "<span>Mean log|det J| <b>" + (ld / N).toFixed(3) + "</b></span>";
+		if (view === "inv") read += "<span>Max reconstruction error <b>" + err.toExponential(1) + "</b></span>";
+		read += "<span>Showing <b>" + ({ z: "base Gaussian", x: "transformed data", inv: "inverted back to z" })[view] + "</b></span>";
+		document.getElementById("nvp-read").innerHTML = read;
+	}
+	PP.seg(document.getElementById("nvp-view"), function (v) { view = v; draw(); });
+	["a", "b", "c", "d"].forEach(function (k) { document.getElementById("nvp-" + k).addEventListener("input", draw); });
+	draw();
+})();
+</script>
+	</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html class="pp-js-off" lang="en">
+	<head>
+		<title>Word-Level vs. Character-Level N-gram Language Models | Sajjad Pakdamansavoji</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Class-conditional unigram and bigram language models at word and character level, used to detect offensive and hateful posts, with a live n-gram playground." />
+		<meta property="og:title" content="Word-Level vs. Character-Level N-gram Language Models" />
+		<meta property="og:description" content="Class-conditional unigram and bigram language models at word and character level, used to detect offensive and hateful posts, with a live n-gram playground." />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://sajjadpsavoji.github.io/projects/ngram-language-models/" />
+		<meta property="og:image" content="https://sajjadpsavoji.github.io/projects/ngram-language-models/img/banner.jpeg" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/custom.css" />
+		<link rel="stylesheet" href="../assets/project.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<!-- Header -->
+								<header id="header">
+									<div class="navig">
+										<a href="../../index.html" class="navig">    About </a>|
+										<a href="../../projects.html" class="navig">Projects </a>|
+										<a href="../../talks.html" class="navig">Talks </a>|
+										<a href="../../publications.html" class="navig">Publication </a>|
+										<a href="../../blog.html" class="navig">Blog </a>|
+										<a href="../../contact.html" class="navig">Contact </a>
+									</div>
+
+									<ul class="icons">
+										<li><a href="https://scholar.google.com/citations?user=DZzLzNwAAAAJ&hl=en" class="icon solid fa-graduation-cap" title="Google Scholar"><span class="label">Google Scholar</span></a></li>
+										<li><a href="https://github.com/SajjadPSavoji" class="icon brands fa-github" title="GitHub"><span class="label">GitHub</span></a></li>
+										<li><a href="https://huggingface.co/savoji" class="icon svg-icon" title="Hugging Face"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-huggingface"></use></svg><span class="label">Hugging Face</span></a></li>
+										<li><a href="https://www.linkedin.com/in/sajjadpsavoji/" class="icon brands fa-linkedin" title="LinkedIn"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://x.com/saavoji" class="icon svg-icon" title="X"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-x"></use></svg><span class="label">X</span></a></li>
+										<li><a href="https://medium.com/@sajjadpakdamansavoji" class="icon svg-icon" title="Medium"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-medium"></use></svg><span class="label">Medium</span></a></li>
+										<li><a href="https://sajjadpakdamansavoji.substack.com" class="icon svg-icon" title="Substack"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-substack"></use></svg><span class="label">Substack</span></a></li>
+										<li><a href="mailto:sj.pakdaman.edu@gmail.com" class="icon fa-envelope" title="Email"><span class="label">Email</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Project -->
+								<section class="pp-page">
+									<p class="pp-crumb"><a href="../../projects.html">&larr; All projects</a></p>
+<header class="pp-hero">
+	<h1>Word-Level vs. Character-Level N-gram Language Models</h1>
+	<p class="pp-sub">The most intuitive language model there is: count how often words (or characters) follow each other. Train one per class, and the model that finds a post more likely labels it. A fair comparison of unigram and bigram models at word and character level.</p>
+	<ul class="pp-chips">
+		<li class="pp-chip-accent">Language modelling</li>
+		<li>Natural Language Processing course</li>
+		<li>University of Tehran · 2021</li>
+		<li>Python · NLTK</li>
+	</ul>
+	<ul class="actions">
+		<li><a href="https://github.com/SajjadPSavoji/Ngram_Language_Model" class="button primary small">Code</a></li>
+		<li><a href="https://github.com/SajjadPSavoji/Ngram_Language_Model/blob/main/Report.pdf" class="button small">Report (PDF)</a></li>
+	</ul>
+	<img class="pp-hero-img" src="img/banner.jpeg" alt="N-gram language model banner" />
+</header>
+
+<div class="pp-stats pp-reveal">
+	<div class="pp-stat"><span class="pp-num">4</span><span class="pp-lbl">models: uni/bigram &times; word/char</span></div>
+	<div class="pp-stat"><span class="pp-num">0.648</span><span class="pp-lbl">best test accuracy: character bigram</span></div>
+	<div class="pp-stat"><span class="pp-num">0.98 &rarr; 0.57</span><span class="pp-lbl">word bigram, train to test: memorisation</span></div>
+	<div class="pp-stat"><span class="pp-num">Laplace</span><span class="pp-lbl">add-one smoothing for unseen n-grams</span></div>
+</div>
+
+<section class="pp-section pp-reveal">
+	<h2>Try a class-conditional n-gram model</h2>
+	<div class="pp-demo">
+		<div class="pp-demo-head"><h3>Two tiny language models, one per class</h3><span class="pp-badge">Runs in your browser</span></div>
+		<p class="pp-hint">Illustration only: each class model is trained on a handful of toy sentences (shown below), not the project's dataset. Type a sentence and switch model types to see how the scores change.</p>
+		<div class="pp-controls">
+			<label style="flex:1;min-width:260px">Sentence <input type="text" id="ng-in" value="thanks for the great answer" style="flex:1" /></label>
+		</div>
+		<div class="pp-seg" id="ng-n"><button data-value="1">Unigram</button><button data-value="2" aria-pressed="true">Bigram</button></div>
+		<div class="pp-seg" id="ng-lvl"><button data-value="word" aria-pressed="true">Word level</button><button data-value="char">Character level</button></div>
+		<div id="ng-tokens" style="display:flex;flex-wrap:wrap;gap:4px;margin:.4em 0 1em"></div>
+		<div class="pp-readout" id="ng-read"></div>
+		<details style="margin-top:1em"><summary class="pp-small">Toy training sentences</summary><div class="pp-two pp-small" id="ng-corpus"></div></details>
+	</div>
+	<p>Each token is coloured by which class model gives it higher probability (blue: polite, orange: rude); hover a token for both probabilities. The decision is the class with the higher total log-probability. Notice how the bigram model punishes word pairs it never saw, and how character level still scores misspelled or unseen words.</p>
+</section>
+
+<section class="pp-section pp-reveal">
+	<h2>Results on the real data</h2>
+	<div class="pp-demo">
+		<div class="pp-seg" id="ng-part"><button data-value="test" aria-pressed="true">Test split</button><button data-value="train">Train split</button></div>
+		<div class="pp-chart" id="ng-chart"></div>
+	</div>
+	<div class="pp-two">
+		<div>
+			<p><strong>Word-level models memorise.</strong> The word bigram is nearly perfect on training data (0.98 accuracy) and falls to 0.57 on test: most test word pairs never appeared in training, so smoothing gives them all the same tiny probability.</p>
+			<p><strong>Character-level models generalise.</strong> Their train&ndash;test gap is small, and the character bigram is the best model on the test split (0.648 accuracy, 0.640 macro-F1). Characters are shared across words, so new words still get informative scores.</p>
+		</div>
+		<div data-tabs>
+			<div class="pp-seg"><button data-tab="cloud">Word cloud</button><button data-tab="char">Character cloud</button><button data-tab="data">Class balance</button></div>
+			<div data-panel="char" hidden><figure class="pp-fig"><img src="img/Clouds_tarin_char_level.png" alt="Character cloud of the training data" data-zoom loading="lazy" /></figure></div>
+			<div data-panel="cloud"><figure class="pp-fig"><img src="img/Clouds_tarin_word_level.png" alt="Word cloud of the training data" data-zoom loading="lazy" /></figure></div>
+			<div data-panel="data" hidden><figure class="pp-fig"><img src="img/Data_stats_HateTrain.jpg" alt="Class balance of the training data" data-zoom loading="lazy" /></figure></div>
+		</div>
+	</div>
+</section>
+									<nav class="pp-pager" aria-label="More projects">
+										<a class="pp-prev" href="../lstm-language-model/"><small>&larr; Previous project</small>LSTM Language Model</a>
+										<a class="pp-next" href="../hmm-sentiment/"><small>Next project &rarr;</small>HMM Sentiment Analysis</a>
+									</nav>
+								</section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../../index.html">Homepage</a></li>
+										<li><a href="../../projects.html">Projects</a></li>
+										<li><a href="../../talks.html">Talks</a></li>
+										<li><a href="../../publications.html">Publications</a></li>
+										<li><a href="../../blog.html">Blog</a></li>
+										<li><a href="../../contact.html">Contact</a></li>
+									</ul>
+								</nav>
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>If our research interests overlap, or you have a business idea worth exploring, I would be glad to hear from you. The easiest ways to reach me are the <a href="../../contact.html">contact form</a> or a DM on <a href="https://www.linkedin.com/in/sajjadpsavoji/">LinkedIn</a>.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:sj.pakdaman.edu@gmail.com">sj.pakdaman.edu@gmail.com</a></li>
+									</ul>
+								</section>
+						</div>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/browser.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/breakpoints.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/util.js" type="text/javascript"></script>
+			<script src="../../assets/js/main.js" type="text/javascript"></script>
+			<script src="../assets/project.js" type="text/javascript"></script>
+<script>
+(function () {
+	var C = {
+		polite: ["thanks for the help", "thank you for the great answer", "have a great day", "this is a really helpful post", "thanks a lot for sharing", "you are very kind", "great work on this project", "i appreciate the help"],
+		rude: ["this is a stupid post", "nobody cares about your answer", "you are so annoying", "stop posting this nonsense", "what a useless answer", "go away and stop talking", "this project is a joke", "you have no idea"]
+	};
+	var n = 2, lvl = "word";
+	function toks(s) { s = s.toLowerCase().replace(/[^a-z' ]/g, " ").replace(/\s+/g, " ").trim(); return lvl === "word" ? s.split(" ").filter(Boolean) : s.split(""); }
+	function train(sents) {
+		var uni = {}, bi = {}, tot = 0, V = {};
+		sents.forEach(function (s) {
+			var t = ["<s>"].concat(toks(s));
+			t.forEach(function (w, i) { uni[w] = (uni[w] || 0) + 1; tot++; V[w] = 1; if (i) { var k = t[i - 1] + "\u0001" + w; bi[k] = (bi[k] || 0) + 1; } });
+		});
+		return { uni: uni, bi: bi, tot: tot, V: V };
+	}
+	function score(m, t, vsize) {
+		var out = [], prev = "<s>";
+		t.forEach(function (w) {
+			var p = n === 1 ? ((m.uni[w] || 0) + 1) / (m.tot + vsize) : ((m.bi[prev + "\u0001" + w] || 0) + 1) / ((m.uni[prev] || 0) + vsize);
+			out.push(p); prev = w;
+		});
+		return out;
+	}
+	function run() {
+		var mp = train(C.polite), mr = train(C.rude), V = {};
+		[mp, mr].forEach(function (m) { for (var k in m.V) V[k] = 1; });
+		var t = toks(document.getElementById("ng-in").value);
+		t.forEach(function (w) { V[w] = 1; });
+		var vs = Object.keys(V).length, sp = score(mp, t, vs), sr = score(mr, t, vs);
+		var box = document.getElementById("ng-tokens"); box.innerHTML = "";
+		var lp = Math.log(0.5), lr = Math.log(0.5);
+		t.forEach(function (w, i) {
+			lp += Math.log(sp[i]); lr += Math.log(sr[i]);
+			var r = Math.log(sp[i] / sr[i]), a = Math.min(1, Math.abs(r) / 1.5);
+			var sEl = document.createElement("span");
+			sEl.textContent = w === " " ? "␣" : w;
+			sEl.style.cssText = "padding:.15em .45em;border-radius:5px;font-size:.9em;border:1px solid #e2e6e9;background:" + (r >= 0 ? "rgba(45,112,156," : "rgba(224,123,57,") + (0.1 + 0.6 * a) + ")";
+			PP.bindTip(sEl, "<b>" + (w === " " ? "space" : w) + "</b><br>P(polite) " + sp[i].toFixed(4) + "<br>P(rude) " + sr[i].toFixed(4));
+			box.appendChild(sEl);
+		});
+		var post = 1 / (1 + Math.exp(lr - lp));
+		document.getElementById("ng-read").innerHTML = t.length ?
+			"<span>log P(text | polite) <b>" + lp.toFixed(1) + "</b></span><span>log P(text | rude) <b>" + lr.toFixed(1) + "</b></span><span>Decision <b>" + (post >= 0.5 ? "polite" : "rude") + "</b> (" + Math.round(100 * Math.max(post, 1 - post)) + "%)</span>" : "";
+	}
+	document.getElementById("ng-corpus").innerHTML = ["polite", "rude"].map(function (k) { return "<div><strong>" + k + "</strong><ul>" + C[k].map(function (s) { return "<li>" + s + "</li>"; }).join("") + "</ul></div>"; }).join("");
+	PP.seg(document.getElementById("ng-n"), function (v) { n = +v; run(); });
+	PP.seg(document.getElementById("ng-lvl"), function (v) { lvl = v; run(); });
+	document.getElementById("ng-in").addEventListener("input", run);
+
+	var R = { // accuracy, F1-macro, precision, recall from the results table
+		train: { "word unigram": [0.878, 0.878, 0.769, 0.955], "char unigram": [0.590, 0.557, 0.517, 0.379], "word bigram": [0.981, 0.980, 0.960, 0.995], "char bigram": [0.687, 0.679, 0.620, 0.650] },
+		test: { "word unigram": [0.644, 0.642, 0.556, 0.817], "char unigram": [0.558, 0.539, 0.477, 0.372], "word bigram": [0.567, 0.539, 0.497, 0.950], "char bigram": [0.648, 0.640, 0.587, 0.590] }
+	};
+	PP.seg(document.getElementById("ng-part"), function (p) {
+		var models = Object.keys(R[p]);
+		PP.bars(document.getElementById("ng-chart"), {
+			categories: ["Accuracy", "F1 (macro)", "Precision", "Recall"],
+			series: models.map(function (m, i) { return { name: m, values: R[p][m], color: PP.colors[i] }; }),
+			min: 0, max: 1, height: 290, fmt: function (v) { return (+v).toFixed(2); }, labels: false, label: p + " metrics"
+		});
+	});
+})();
+</script>
+	</body>
+</html>

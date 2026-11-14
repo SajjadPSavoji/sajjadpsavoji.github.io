@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html class="pp-js-off" lang="en">
+	<head>
+		<title>Variational Autoencoder on MNIST | Sajjad Pakdamansavoji</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="A variational autoencoder on MNIST with an animated 2-D latent space and an interactive demo of the reparameterisation trick and the KL term." />
+		<meta property="og:title" content="Variational Autoencoder on MNIST" />
+		<meta property="og:description" content="A variational autoencoder on MNIST with an animated 2-D latent space and an interactive demo of the reparameterisation trick and the KL term." />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://sajjadpsavoji.github.io/projects/vae-mnist/" />
+		<meta property="og:image" content="https://sajjadpsavoji.github.io/projects/vae-mnist/img/banner.jpeg" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/custom.css" />
+		<link rel="stylesheet" href="../assets/project.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<!-- Header -->
+								<header id="header">
+									<div class="navig">
+										<a href="../../index.html" class="navig">    About </a>|
+										<a href="../../projects.html" class="navig">Projects </a>|
+										<a href="../../talks.html" class="navig">Talks </a>|
+										<a href="../../publications.html" class="navig">Publication </a>|
+										<a href="../../blog.html" class="navig">Blog </a>|
+										<a href="../../contact.html" class="navig">Contact </a>
+									</div>
+
+									<ul class="icons">
+										<li><a href="https://scholar.google.com/citations?user=DZzLzNwAAAAJ&hl=en" class="icon solid fa-graduation-cap" title="Google Scholar"><span class="label">Google Scholar</span></a></li>
+										<li><a href="https://github.com/SajjadPSavoji" class="icon brands fa-github" title="GitHub"><span class="label">GitHub</span></a></li>
+										<li><a href="https://huggingface.co/savoji" class="icon svg-icon" title="Hugging Face"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-huggingface"></use></svg><span class="label">Hugging Face</span></a></li>
+										<li><a href="https://www.linkedin.com/in/sajjadpsavoji/" class="icon brands fa-linkedin" title="LinkedIn"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://x.com/saavoji" class="icon svg-icon" title="X"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-x"></use></svg><span class="label">X</span></a></li>
+										<li><a href="https://medium.com/@sajjadpakdamansavoji" class="icon svg-icon" title="Medium"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-medium"></use></svg><span class="label">Medium</span></a></li>
+										<li><a href="https://sajjadpakdamansavoji.substack.com" class="icon svg-icon" title="Substack"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-substack"></use></svg><span class="label">Substack</span></a></li>
+										<li><a href="mailto:sj.pakdaman.edu@gmail.com" class="icon fa-envelope" title="Email"><span class="label">Email</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Project -->
+								<section class="pp-page">
+									<p class="pp-crumb"><a href="../../projects.html">&larr; All projects</a></p>
+<header class="pp-hero">
+	<h1>Variational Autoencoder on MNIST</h1>
+	<p class="pp-sub">Auto-Encoding Variational Bayes, implemented and trained on handwritten digits: an encoder that outputs a distribution instead of a point, a decoder that draws digits from it, and a training objective with a closed-form KL term.</p>
+	<ul class="pp-chips">
+		<li class="pp-chip-accent">Variational inference</li>
+		<li>Neural Networks &amp; Deep Learning course</li>
+		<li>University of Tehran · 2020</li>
+		<li>Keras · MNIST · EfficientNet bonus</li>
+	</ul>
+	<ul class="actions">
+		<li><a href="https://github.com/SajjadPSavoji/Variational-Auto-Encoder" class="button primary small">Code</a></li>
+		<li><a href="https://github.com/SajjadPSavoji/Variational-Auto-Encoder/blob/master/NNDL_miniproj3_report.pdf" class="button small">Report (PDF)</a></li>
+	</ul>
+	<img class="pp-hero-img" src="img/banner.jpeg" alt="VAE banner" />
+</header>
+
+<div class="pp-stats pp-reveal">
+	<div class="pp-stat"><span class="pp-num">2-D</span><span class="pp-lbl">latent space, so it can be plotted directly</span></div>
+	<div class="pp-stat"><span class="pp-num">BCE + KL</span><span class="pp-lbl">reconstruction loss plus the KL divergence to N(0, I)</span></div>
+	<div class="pp-stat"><span class="pp-num">EfficientNet</span><span class="pp-lbl">pretrained encoder in a bonus variant</span></div>
+</div>
+
+<section class="pp-section pp-reveal">
+	<h2>The latent space, as it trains</h2>
+	<div class="pp-two">
+		<figure class="pp-fig"><video src="img/latent.mp4" poster="img/latent-poster.png" autoplay loop muted playsinline preload="metadata" aria-label="MNIST digits in the 2-D latent space over training" style="display:block;width:100%;border-radius:8px;border:1px solid #e2e6e9;background:#fff"></video><figcaption>Encoded test digits in the 2-D latent space over training. Classes separate into clusters that pack around the origin, as the KL term demands.</figcaption></figure>
+		<figure class="pp-fig"><video src="img/grid.mp4" poster="img/grid-poster.png" autoplay loop muted playsinline preload="metadata" aria-label="Grid of decoded digits over training" style="display:block;width:100%;border-radius:8px;border:1px solid #e2e6e9;background:#fff"></video><figcaption>Digits decoded from a regular grid of latent points. Neighbouring points decode to similar digits and morph smoothly from one class to the next.</figcaption></figure>
+	</div>
+</section>
+
+<section class="pp-section pp-reveal">
+	<h2>The reparameterisation trick</h2>
+	<div class="pp-demo">
+		<div class="pp-demo-head"><h3>Sample z = &mu; + &sigma;&middot;&epsilon; and watch the KL term</h3><span class="pp-badge">Interactive</span></div>
+		<p class="pp-hint">The encoder outputs &mu; and &sigma; for one latent dimension. Sampling is moved into &epsilon; ~ N(0,1), so gradients can flow through &mu; and &sigma;. The KL term measures how far q(z|x) = N(&mu;, &sigma;&sup2;) is from the prior N(0, 1).</p>
+		<div class="pp-controls">
+			<label>&mu; <input type="range" id="rp-mu" min="-3" max="3" step="0.05" value="1.2" /><output id="rp-mu-o">1.2</output></label>
+			<label>&sigma; <input type="range" id="rp-s" min="0.1" max="2" step="0.05" value="0.5" /><output id="rp-s-o">0.5</output></label>
+			<button class="pp-btn" id="rp-go" type="button">Draw 50 samples</button>
+		</div>
+		<div class="pp-chart" id="rp-chart"></div>
+		<div class="pp-readout" id="rp-read"></div>
+	</div>
+	<p>The two loss terms pull in opposite directions. Reconstruction wants each digit's &sigma; tiny and its &mu; far from the others, so it can be decoded exactly. The KL term wants every q(z|x) to look like the prior. The compromise is the dense, continuous space in the animations above, which is what lets you decode <em>any</em> point into a plausible digit.</p>
+	<p>The same model at a larger scale, trained on celebrity faces, is on the <a href="../vae-faces/">VAE Faces</a> page.</p>
+</section>
+									<nav class="pp-pager" aria-label="More projects">
+										<a class="pp-prev" href="../acgan/"><small>&larr; Previous project</small>Auxiliary-Classifier GAN</a>
+										<a class="pp-next" href="../hate-speech-transformers/"><small>Next project &rarr;</small>Hate Speech: BERT vs. XLNet</a>
+									</nav>
+								</section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../../index.html">Homepage</a></li>
+										<li><a href="../../projects.html">Projects</a></li>
+										<li><a href="../../talks.html">Talks</a></li>
+										<li><a href="../../publications.html">Publications</a></li>
+										<li><a href="../../blog.html">Blog</a></li>
+										<li><a href="../../contact.html">Contact</a></li>
+									</ul>
+								</nav>
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>If our research interests overlap, or you have a business idea worth exploring, I would be glad to hear from you. The easiest ways to reach me are the <a href="../../contact.html">contact form</a> or a DM on <a href="https://www.linkedin.com/in/sajjadpsavoji/">LinkedIn</a>.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:sj.pakdaman.edu@gmail.com">sj.pakdaman.edu@gmail.com</a></li>
+									</ul>
+								</section>
+						</div>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/browser.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/breakpoints.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/util.js" type="text/javascript"></script>
+			<script src="../../assets/js/main.js" type="text/javascript"></script>
+			<script src="../assets/project.js" type="text/javascript"></script>
+<script>
+(function () {
+	var mu = document.getElementById("rp-mu"), sg = document.getElementById("rp-s"), samples = [];
+	function n01() { var u = Math.random() || 1e-9, v = Math.random(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+	function pdf(x, m, s) { return Math.exp(-0.5 * Math.pow((x - m) / s, 2)) / (s * Math.sqrt(2 * Math.PI)); }
+	function draw() {
+		var m = +mu.value, s = +sg.value;
+		document.getElementById("rp-mu-o").value = m; document.getElementById("rp-s-o").value = s;
+		var xs = []; for (var x = -5; x <= 5.001; x += 0.05) xs.push(x);
+		var ymax = Math.max(0.45, pdf(m, m, s) * 1.1);
+		var c = PP.lines(document.getElementById("rp-chart"), {
+			series: [
+				{ name: "prior N(0, 1)", color: "#7a8791", dash: "6 5", points: xs.map(function (x) { return [x, pdf(x, 0, 1)]; }) },
+				{ name: "q(z|x) = N(μ, σ²)", color: "#2d709c", points: xs.map(function (x) { return [x, pdf(x, m, s)]; }) }
+			],
+			xMin: -5, xMax: 5, yMin: 0, yMax: ymax, height: 260, xLabel: "z", yLabel: "density"
+		});
+		samples.forEach(function (e) {
+			var z = m + s * e;
+			PP.svgEl("circle", { cx: c.X(z), cy: c.Y(0) - 6, r: 3.2, fill: "#e07b39", "fill-opacity": 0.75 }, c.svg);
+		});
+		var kl = 0.5 * (m * m + s * s - 1 - Math.log(s * s));
+		document.getElementById("rp-read").innerHTML = "<span>KL(q || prior) <b>" + kl.toFixed(3) + " nats</b></span>" +
+			"<span>z = " + m.toFixed(2) + " + " + s.toFixed(2) + "&middot;&epsilon;</span>" + (samples.length ? "<span>samples <b>" + samples.length + "</b> (orange)</span>" : "");
+	}
+	document.getElementById("rp-go").onclick = function () { samples = []; for (var i = 0; i < 50; i++) samples.push(n01()); draw(); };
+	mu.addEventListener("input", draw); sg.addEventListener("input", draw); draw();
+})();
+</script>
+	</body>
+</html>

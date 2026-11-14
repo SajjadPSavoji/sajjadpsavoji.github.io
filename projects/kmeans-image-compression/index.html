@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html class="pp-js-off" lang="en">
+	<head>
+		<title>Image Compression with K-Means | Sajjad Pakdamansavoji</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Lossy image compression by clustering pixel colours with k-means: an interactive demo that runs k-means in your browser, with the palette, error and compression ratio for any K." />
+		<meta property="og:title" content="Image Compression with K-Means" />
+		<meta property="og:description" content="Lossy image compression by clustering pixel colours with k-means: an interactive demo that runs k-means in your browser, with the palette, error and compression ratio for any K." />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://sajjadpsavoji.github.io/projects/kmeans-image-compression/" />
+		<meta property="og:image" content="https://sajjadpsavoji.github.io/projects/kmeans-image-compression/img/banner.jpeg" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/custom.css" />
+		<link rel="stylesheet" href="../assets/project.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<!-- Header -->
+								<header id="header">
+									<div class="navig">
+										<a href="../../index.html" class="navig">    About </a>|
+										<a href="../../projects.html" class="navig">Projects </a>|
+										<a href="../../talks.html" class="navig">Talks </a>|
+										<a href="../../publications.html" class="navig">Publication </a>|
+										<a href="../../blog.html" class="navig">Blog </a>|
+										<a href="../../contact.html" class="navig">Contact </a>
+									</div>
+
+									<ul class="icons">
+										<li><a href="https://scholar.google.com/citations?user=DZzLzNwAAAAJ&hl=en" class="icon solid fa-graduation-cap" title="Google Scholar"><span class="label">Google Scholar</span></a></li>
+										<li><a href="https://github.com/SajjadPSavoji" class="icon brands fa-github" title="GitHub"><span class="label">GitHub</span></a></li>
+										<li><a href="https://huggingface.co/savoji" class="icon svg-icon" title="Hugging Face"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-huggingface"></use></svg><span class="label">Hugging Face</span></a></li>
+										<li><a href="https://www.linkedin.com/in/sajjadpsavoji/" class="icon brands fa-linkedin" title="LinkedIn"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://x.com/saavoji" class="icon svg-icon" title="X"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-x"></use></svg><span class="label">X</span></a></li>
+										<li><a href="https://medium.com/@sajjadpakdamansavoji" class="icon svg-icon" title="Medium"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-medium"></use></svg><span class="label">Medium</span></a></li>
+										<li><a href="https://sajjadpakdamansavoji.substack.com" class="icon svg-icon" title="Substack"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-substack"></use></svg><span class="label">Substack</span></a></li>
+										<li><a href="mailto:sj.pakdaman.edu@gmail.com" class="icon fa-envelope" title="Email"><span class="label">Email</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Project -->
+								<section class="pp-page">
+									<p class="pp-crumb"><a href="../../projects.html">&larr; All projects</a></p>
+<header class="pp-hero">
+	<h1>Image Compression with K-Means</h1>
+	<p class="pp-sub">A photo stores 16.7 million possible colours per pixel, but it rarely needs them. Clustering the pixels into <em>K</em> representative colours keeps the picture and drops most of the bits.</p>
+	<ul class="pp-chips">
+		<li class="pp-chip-accent">Unsupervised learning</li>
+		<li>Pattern Recognition course</li>
+		<li>University of Tehran · 2020</li>
+		<li>scikit-learn · NumPy · Pillow</li>
+	</ul>
+	<ul class="actions">
+		<li><a href="https://github.com/SajjadPSavoji/Image-Compression-Kmeans" class="button primary small">Code</a></li>
+		<li><a href="https://github.com/SajjadPSavoji/Image-Compression-Kmeans/blob/master/hw8.pdf" class="button small">Report (PDF)</a></li>
+	</ul>
+	<img class="pp-hero-img" src="img/banner.jpeg" alt="One photo at full colour and after k-means quantisation to fewer and fewer colours" />
+</header>
+
+<div class="pp-stats pp-reveal">
+	<div class="pp-stat"><span class="pp-num">24 &rarr; 5</span><span class="pp-lbl">bits per pixel at K&nbsp;=&nbsp;20 (each pixel stores a palette index)</span></div>
+	<div class="pp-stat"><span class="pp-num">&asymp;4.8&times;</span><span class="pp-lbl">smaller pixel data, before any entropy coding</span></div>
+	<div class="pp-stat"><span class="pp-num">K = 10&ndash;19</span><span class="pp-lbl">swept on the error curve before settling on K&nbsp;=&nbsp;20</span></div>
+</div>
+
+<section class="pp-section pp-reveal">
+	<h2>The idea</h2>
+	<p class="pp-lead">Every pixel is a point in 3-D colour space (R, G, B). K-means groups those points into <em>K</em> clusters and replaces each pixel with the centre of its cluster. The image is then stored as a small palette of <em>K</em> colours plus one short index per pixel. It is lossy: the original colours cannot be recovered, and a smaller <em>K</em> means a larger gap between the two images.</p>
+	<ol class="pp-steps">
+		<li><strong>Flatten</strong>Reshape the H&times;W&times;3 image into a list of H&middot;W colour points.</li>
+		<li><strong>Initialise</strong>Pick <em>K</em> starting centres with k-means++, which spreads them apart.</li>
+		<li><strong>Assign</strong>Give every pixel the label of its nearest centre (Euclidean distance in RGB).</li>
+		<li><strong>Update</strong>Move each centre to the mean colour of its pixels, and repeat until it settles.</li>
+		<li><strong>Encode</strong>Keep the <em>K</em>-colour palette and a &lceil;log<sub>2</sub>K&rceil;-bit index per pixel.</li>
+	</ol>
+</section>
+
+<section class="pp-section pp-reveal">
+	<h2>Try it</h2>
+	<div class="pp-demo" id="km-demo">
+		<div class="pp-demo-head"><h3>K-means on the project's forest photo</h3><span class="pp-badge">Runs in your browser</span></div>
+		<p class="pp-hint">Drag the slider. Each change re-runs k-means++ and Lloyd's iterations on a sample of the pixels, then recolours the full image.</p>
+		<div class="pp-controls">
+			<label for="km-k">Colours K <input type="range" id="km-k" min="2" max="32" value="8" /> <output id="km-k-out">8</output></label>
+			<label><input type="checkbox" id="km-orig" /> Show original</label>
+		</div>
+		<div class="pp-two">
+			<figure class="pp-fig"><canvas id="km-canvas" width="650" height="488" aria-label="Compressed image"></canvas><figcaption id="km-cap">Compressed with K colours.</figcaption></figure>
+			<div>
+				<h3 style="margin-top:0">Palette</h3>
+				<div id="km-palette" style="display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin-bottom:1em"></div>
+				<div class="pp-readout" id="km-read"></div>
+				<h3>Error vs. number of colours</h3>
+				<div class="pp-chart" id="km-curve"></div>
+				<p class="pp-small pp-muted">Mean squared error per channel, measured on a fixed pixel sample. The marker is the current K.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="pp-section pp-reveal">
+	<h2>What I found</h2>
+	<div class="pp-two">
+		<div>
+			<p>The error curve falls steeply for the first few colours and then flattens: going from 2 to 8 colours removes most of the visible damage, while each step past ~16 buys little. In the assignment I swept K from 10 to 19 with scikit-learn, plotted the reconstruction MSE, and used K&nbsp;=&nbsp;20 for the final image.</p>
+			<p>At K&nbsp;=&nbsp;20 every pixel fits in 5 bits instead of 24. The palette itself costs only 20&nbsp;&times;&nbsp;24 bits, so for a 650&times;488 photo the pixel data shrinks almost five-fold before any entropy coding.</p>
+		</div>
+		<div class="pp-callout">
+			<p><strong>Why it works.</strong> Natural photos use a narrow, clumpy part of colour space: a forest is mostly greens, browns and sky. K-means puts its centres where the pixels actually are, so a few dozen colours cover the image far better than a uniform 5-bit grid would.</p>
+		</div>
+	</div>
+</section>
+									<nav class="pp-pager" aria-label="More projects">
+										<a class="pp-prev" href="../active-polyhedral-scene-matching/"><small>&larr; Previous project</small>Active Polyhedral Scene Matching</a>
+										<a class="pp-next" href="../gtsrb/"><small>Next project &rarr;</small>GTSRB CNN Ablations</a>
+									</nav>
+								</section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../../index.html">Homepage</a></li>
+										<li><a href="../../projects.html">Projects</a></li>
+										<li><a href="../../talks.html">Talks</a></li>
+										<li><a href="../../publications.html">Publications</a></li>
+										<li><a href="../../blog.html">Blog</a></li>
+										<li><a href="../../contact.html">Contact</a></li>
+									</ul>
+								</nav>
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>If our research interests overlap, or you have a business idea worth exploring, I would be glad to hear from you. The easiest ways to reach me are the <a href="../../contact.html">contact form</a> or a DM on <a href="https://www.linkedin.com/in/sajjadpsavoji/">LinkedIn</a>.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:sj.pakdaman.edu@gmail.com">sj.pakdaman.edu@gmail.com</a></li>
+									</ul>
+								</section>
+						</div>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/browser.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/breakpoints.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/util.js" type="text/javascript"></script>
+			<script src="../../assets/js/main.js" type="text/javascript"></script>
+			<script src="../assets/project.js" type="text/javascript"></script>
+<script>
+(function () {
+	var img = new Image();
+	var canvas = document.getElementById("km-canvas"), ctx = canvas.getContext("2d", { willReadFrequently: true });
+	var slider = document.getElementById("km-k"), out = document.getElementById("km-k-out"), orig = document.getElementById("km-orig");
+	var pixels, N, sample, curve = {}, timer;
+
+	function rng(seed) { return function () { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }; }
+
+	function kmeans(pts, K, iters) {
+		var n = pts.length / 3, r = rng(42 + K), C = new Float64Array(K * 3), d2 = new Float64Array(n);
+		var first = Math.floor(r() * n);
+		C[0] = pts[first * 3]; C[1] = pts[first * 3 + 1]; C[2] = pts[first * 3 + 2];
+		for (var i = 0; i < n; i++) d2[i] = Infinity;
+		for (var k = 1; k < K; k++) {               // k-means++ seeding
+			var sum = 0;
+			for (i = 0; i < n; i++) {
+				var dr = pts[i * 3] - C[(k - 1) * 3], dg = pts[i * 3 + 1] - C[(k - 1) * 3 + 1], db = pts[i * 3 + 2] - C[(k - 1) * 3 + 2];
+				var d = dr * dr + dg * dg + db * db;
+				if (d < d2[i]) d2[i] = d;
+				sum += d2[i];
+			}
+			var t = r() * sum, j = 0;
+			for (i = 0; i < n; i++) { t -= d2[i]; if (t <= 0) { j = i; break; } }
+			C[k * 3] = pts[j * 3]; C[k * 3 + 1] = pts[j * 3 + 1]; C[k * 3 + 2] = pts[j * 3 + 2];
+		}
+		var lab = new Int32Array(n);
+		for (var it = 0; it < iters; it++) {        // Lloyd iterations
+			var S = new Float64Array(K * 3), cnt = new Float64Array(K);
+			for (i = 0; i < n; i++) {
+				var best = 0, bd = Infinity;
+				for (k = 0; k < K; k++) {
+					var a = pts[i * 3] - C[k * 3], b = pts[i * 3 + 1] - C[k * 3 + 1], c = pts[i * 3 + 2] - C[k * 3 + 2];
+					var dd = a * a + b * b + c * c;
+					if (dd < bd) { bd = dd; best = k; }
+				}
+				lab[i] = best; cnt[best]++;
+				S[best * 3] += pts[i * 3]; S[best * 3 + 1] += pts[i * 3 + 1]; S[best * 3 + 2] += pts[i * 3 + 2];
+			}
+			for (k = 0; k < K; k++) if (cnt[k]) { C[k * 3] = S[k * 3] / cnt[k]; C[k * 3 + 1] = S[k * 3 + 1] / cnt[k]; C[k * 3 + 2] = S[k * 3 + 2] / cnt[k]; }
+		}
+		return C;
+	}
+
+	function nearestError(pts, C, K, write) {
+		var n = pts.length / 3, err = 0;
+		for (var i = 0; i < n; i++) {
+			var best = 0, bd = Infinity;
+			for (var k = 0; k < K; k++) {
+				var a = pts[i * 3] - C[k * 3], b = pts[i * 3 + 1] - C[k * 3 + 1], c = pts[i * 3 + 2] - C[k * 3 + 2];
+				var dd = a * a + b * b + c * c;
+				if (dd < bd) { bd = dd; best = k; }
+			}
+			err += bd;
+			if (write) { write[i * 4] = C[best * 3]; write[i * 4 + 1] = C[best * 3 + 1]; write[i * 4 + 2] = C[best * 3 + 2]; write[i * 4 + 3] = 255; }
+		}
+		return err / (n * 3);
+	}
+
+	function drawCurve(K) {
+		var ks = Object.keys(curve).map(Number).sort(function (a, b) { return a - b; });
+		var pts = ks.map(function (k) { return [k, curve[k]]; });
+		var ymax = PP.nice(Math.max.apply(null, pts.map(function (p) { return p[1]; })) * 1.02);
+		PP.lines(document.getElementById("km-curve"), {
+			series: [{ name: "MSE", color: "#2d709c", points: pts }], legend: false,
+			xMin: 2, xMax: 32, yMin: 0, yMax: ymax, height: 220, xLabel: "K (colours)", yLabel: "MSE",
+			xFmt: function (v) { return Math.round(v); }, yFmt: function (v) { return Math.round(v); },
+			marker: { x: K, dots: [{ y: curve[K], color: "#e07b39" }] }
+		});
+	}
+
+	function run() {
+		var K = +slider.value;
+		out.value = K;
+		var C = kmeans(sample, K, 12);
+		var data = ctx.createImageData(canvas.width, canvas.height);
+		var mse = nearestError(pixels, C, K, data.data);
+		curve[K] = nearestError(sample, C, K);
+		if (!orig.checked) ctx.putImageData(data, 0, 0);
+		var pal = document.getElementById("km-palette");
+		pal.innerHTML = "";
+		for (var k = 0; k < K; k++) {
+			var sw = document.createElement("span");
+			var rgb = "rgb(" + Math.round(C[k * 3]) + "," + Math.round(C[k * 3 + 1]) + "," + Math.round(C[k * 3 + 2]) + ")";
+			sw.style.cssText = "display:block;aspect-ratio:1;border-radius:4px;border:1px solid rgba(0,0,0,.08);background:" + rgb;
+			sw.title = rgb;
+			pal.appendChild(sw);
+		}
+		var bits = Math.ceil(Math.log2(K)), raw = N * 24, packed = N * bits + K * 24;
+		document.getElementById("km-read").innerHTML =
+			"<span>Bits/pixel <b>" + bits + "</b> (was 24)</span>" +
+			"<span>Size ratio <b>" + (raw / packed).toFixed(1) + "&times;</b></span>" +
+			"<span>MSE <b>" + mse.toFixed(1) + "</b></span>" +
+			"<span>PSNR <b>" + (10 * Math.log10(255 * 255 / mse)).toFixed(1) + " dB</b></span>";
+		document.getElementById("km-cap").textContent = "Compressed with " + K + " colours (" + bits + " bits per pixel).";
+		drawCurve(K);
+	}
+
+	function warmCurve() {                       // fill the error curve a few K at a time
+		var todo = [2, 3, 4, 6, 8, 12, 16, 20, 24, 28, 32].filter(function (k) { return !(k in curve); });
+		if (!todo.length) return;
+		var k = todo[0];
+		curve[k] = nearestError(sample, kmeans(sample, k, 12), k);
+		drawCurve(+slider.value);
+		setTimeout(warmCurve, 30);
+	}
+
+	img.onload = function () {
+		ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+		var d = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+		N = canvas.width * canvas.height;
+		pixels = new Float64Array(N * 3);
+		for (var i = 0; i < N; i++) { pixels[i * 3] = d[i * 4]; pixels[i * 3 + 1] = d[i * 4 + 1]; pixels[i * 3 + 2] = d[i * 4 + 2]; }
+		var r = rng(7), m = 12000; sample = new Float64Array(m * 3);
+		for (i = 0; i < m; i++) { var j = Math.floor(r() * N); sample[i * 3] = pixels[j * 3]; sample[i * 3 + 1] = pixels[j * 3 + 1]; sample[i * 3 + 2] = pixels[j * 3 + 2]; }
+		run();
+		setTimeout(warmCurve, 200);
+	};
+	img.src = "img/forest.jpg";
+	slider.addEventListener("input", function () { out.value = slider.value; clearTimeout(timer); timer = setTimeout(run, 60); });
+	orig.addEventListener("change", function () { if (orig.checked) ctx.drawImage(img, 0, 0, canvas.width, canvas.height); else run(); });
+})();
+</script>
+	</body>
+</html>

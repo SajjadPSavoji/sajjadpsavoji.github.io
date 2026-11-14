@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html class="pp-js-off" lang="en">
+	<head>
+		<title>Face Synthesis with a Variational Autoencoder | Sajjad Pakdamansavoji</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="A convolutional VAE trained on CelebA: a smooth 128-dimensional face space for sampling, reconstruction and comparison, with a training-progress slider." />
+		<meta property="og:title" content="Face Synthesis with a Variational Autoencoder" />
+		<meta property="og:description" content="A convolutional VAE trained on CelebA: a smooth 128-dimensional face space for sampling, reconstruction and comparison, with a training-progress slider." />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://sajjadpsavoji.github.io/projects/vae-faces/" />
+		<meta property="og:image" content="https://sajjadpsavoji.github.io/projects/vae-faces/img/Unknown-8.png" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/custom.css" />
+		<link rel="stylesheet" href="../assets/project.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<!-- Header -->
+								<header id="header">
+									<div class="navig">
+										<a href="../../index.html" class="navig">    About </a>|
+										<a href="../../projects.html" class="navig">Projects </a>|
+										<a href="../../talks.html" class="navig">Talks </a>|
+										<a href="../../publications.html" class="navig">Publication </a>|
+										<a href="../../blog.html" class="navig">Blog </a>|
+										<a href="../../contact.html" class="navig">Contact </a>
+									</div>
+
+									<ul class="icons">
+										<li><a href="https://scholar.google.com/citations?user=DZzLzNwAAAAJ&hl=en" class="icon solid fa-graduation-cap" title="Google Scholar"><span class="label">Google Scholar</span></a></li>
+										<li><a href="https://github.com/SajjadPSavoji" class="icon brands fa-github" title="GitHub"><span class="label">GitHub</span></a></li>
+										<li><a href="https://huggingface.co/savoji" class="icon svg-icon" title="Hugging Face"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-huggingface"></use></svg><span class="label">Hugging Face</span></a></li>
+										<li><a href="https://www.linkedin.com/in/sajjadpsavoji/" class="icon brands fa-linkedin" title="LinkedIn"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://x.com/saavoji" class="icon svg-icon" title="X"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-x"></use></svg><span class="label">X</span></a></li>
+										<li><a href="https://medium.com/@sajjadpakdamansavoji" class="icon svg-icon" title="Medium"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-medium"></use></svg><span class="label">Medium</span></a></li>
+										<li><a href="https://sajjadpakdamansavoji.substack.com" class="icon svg-icon" title="Substack"><svg aria-hidden="true"><use href="../../assets/icons.svg#icon-substack"></use></svg><span class="label">Substack</span></a></li>
+										<li><a href="mailto:sj.pakdaman.edu@gmail.com" class="icon fa-envelope" title="Email"><span class="label">Email</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Project -->
+								<section class="pp-page">
+									<p class="pp-crumb"><a href="../../projects.html">&larr; All projects</a></p>
+<header class="pp-hero">
+	<h1>Face Synthesis with a Variational Autoencoder</h1>
+	<p class="pp-sub">A VAE compresses each face into a point in a smooth 128-dimensional space and learns to decode any point back into a face. That gives one model for sampling new faces, reconstructing real ones and measuring how similar two faces are.</p>
+	<ul class="pp-chips">
+		<li class="pp-chip-accent">Variational inference</li>
+		<li>EECS 6327 · Probabilistic Models in ML</li>
+		<li>York University</li>
+		<li>PyTorch · CelebA</li>
+	</ul>
+	<ul class="actions">
+		<li><a href="https://github.com/SajjadPSavoji/VAEFaces" class="button primary small">Code</a></li>
+		<li><a href="https://github.com/SajjadPSavoji/VAEFaces/blob/main/Report/icml2020_style.pdf" class="button small">Report (PDF)</a></li>
+	</ul>
+</header>
+
+<div class="pp-stats pp-reveal">
+	<div class="pp-stat"><span class="pp-num">128-D</span><span class="pp-lbl">latent space for every face</span></div>
+	<div class="pp-stat"><span class="pp-num">180 min</span><span class="pp-lbl">total training, the slowest of the three models</span></div>
+	<div class="pp-stat"><span class="pp-num">Best</span><span class="pp-lbl">face symmetry in the study, at the cost of blur</span></div>
+	<div class="pp-stat"><span class="pp-num">SGD</span><span class="pp-lbl">lr 5e-3 with 0.95 decay, batch 144</span></div>
+</div>
+
+<section class="pp-section pp-reveal">
+	<h2>Watch it learn</h2>
+	<div class="pp-demo">
+		<div class="pp-demo-head"><h3>Generated faces during training</h3><span class="pp-badge">Slider</span></div>
+		<p class="pp-hint">Snapshots saved in the repository. Early on the decoder produces a blurry average face; structure and variety appear as the latent space organises itself.</p>
+		<div class="pp-controls"><label>Training snapshot <input type="range" id="vf-s" min="0" max="2" step="1" value="2" /> <output id="vf-o">final</output></label></div>
+		<figure class="pp-fig" style="max-width:520px"><img id="vf-img" src="img/Unknown-8.png" data-zoom alt="Faces generated by the VAE" /><figcaption id="vf-cap">Final snapshot.</figcaption></figure>
+	</div>
+</section>
+
+<section class="pp-section pp-reveal">
+	<h2>How a VAE works</h2>
+	<ol class="pp-steps">
+		<li><strong>Encode</strong>A convolutional encoder maps a face to the mean &mu; and spread &sigma; of a Gaussian over the 128-D latent space.</li>
+		<li><strong>Sample</strong>Draw z = &mu; + &sigma;&middot;&epsilon; with &epsilon; ~ N(0, I). This reparameterisation keeps sampling differentiable.</li>
+		<li><strong>Decode</strong>A transposed-convolution decoder turns z back into an image.</li>
+		<li><strong>Train</strong>Maximise reconstruction log-likelihood minus the KL divergence that pulls q(z|x) toward N(0, I).</li>
+	</ol>
+	<p>The KL term is what makes the space smooth: nearby points decode to similar faces, so you can sample anywhere and interpolate between faces. It is also why VAEs blur: the model hedges between plausible faces rather than committing to one. See the <a href="../vae-mnist/">VAE on MNIST</a> page to play with the reparameterisation trick directly.</p>
+</section>
+
+<section class="pp-section pp-reveal">
+	<h2>How it compares</h2>
+	<div data-faces-compare="vae"></div>
+</section>
+									<nav class="pp-pager" aria-label="More projects">
+										<a class="pp-prev" href="../realnvp-faces/"><small>&larr; Previous project</small>RealNVP Faces (CelebA)</a>
+										<a class="pp-next" href="../dcgan-cifar10/"><small>Next project &rarr;</small>DCGAN (CIFAR-10)</a>
+									</nav>
+								</section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../../index.html">Homepage</a></li>
+										<li><a href="../../projects.html">Projects</a></li>
+										<li><a href="../../talks.html">Talks</a></li>
+										<li><a href="../../publications.html">Publications</a></li>
+										<li><a href="../../blog.html">Blog</a></li>
+										<li><a href="../../contact.html">Contact</a></li>
+									</ul>
+								</nav>
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>If our research interests overlap, or you have a business idea worth exploring, I would be glad to hear from you. The easiest ways to reach me are the <a href="../../contact.html">contact form</a> or a DM on <a href="https://www.linkedin.com/in/sajjadpsavoji/">LinkedIn</a>.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:sj.pakdaman.edu@gmail.com">sj.pakdaman.edu@gmail.com</a></li>
+									</ul>
+								</section>
+						</div>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/browser.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/breakpoints.min.js" type="text/javascript"></script>
+			<script src="../../assets/js/util.js" type="text/javascript"></script>
+			<script src="../../assets/js/main.js" type="text/javascript"></script>
+			<script src="../assets/project.js" type="text/javascript"></script>
+<script src="../assets/faces-compare.js"></script>
+<script>
+(function () {
+	var S = [["img/Unknown-6.png", "first", "First snapshot: a blurry, average face repeated across the grid."],
+	         ["img/Unknown-7.png", "middle", "Middle snapshot: hair, pose and skin tone begin to vary."],
+	         ["img/Unknown-8.png", "final", "Final snapshot: distinct, symmetric faces, still soft at the edges."]];
+	var s = document.getElementById("vf-s");
+	S.forEach(function (x) { new Image().src = x[0]; });
+	function show() { var x = S[+s.value]; document.getElementById("vf-img").src = x[0]; document.getElementById("vf-o").value = x[1]; document.getElementById("vf-cap").textContent = x[2]; }
+	s.addEventListener("input", show); show();
+})();
+</script>
+	</body>
+</html>

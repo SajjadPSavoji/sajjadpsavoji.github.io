@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-label="OpenCaP: frame errors rise from 4% to 47% without high-level APIs">
+  <rect width="800" height="420" fill="#f5f7f9"/>
+  <g font-family="Roboto Slab, Georgia, serif" fill="#3d4449">
+    <text x="48" y="78" font-size="30" font-weight="700">OpenCaP</text>
+    <text x="48" y="112" font-size="17" fill="#5f686f" font-family="Open Sans, Arial, sans-serif">21 open-weight LLMs writing robot code · 7,560 trials</text>
+  </g>
+  <g font-family="Open Sans, Arial, sans-serif">
+    <text x="48" y="190" font-size="15" fill="#5f686f">Coordinate-frame errors among failing programs</text>
+    <rect x="48" y="346" width="200" height="14" rx="3" fill="#cfd7dc"/>
+    <rect x="48" y="346" width="17" height="14" rx="3" fill="#2d709c"/>
+    <text x="48" y="336" font-size="15" fill="#3d4449">with high-level APIs</text>
+    <text x="262" y="358" font-size="22" font-weight="700" fill="#2d709c">4%</text>
+    <rect x="360" y="346" width="200" height="14" rx="3" fill="#cfd7dc"/>
+    <rect x="360" y="346" width="94" height="14" rx="3" fill="#e07b39"/>
+    <text x="360" y="336" font-size="15" fill="#3d4449">APIs removed</text>
+    <text x="574" y="358" font-size="22" font-weight="700" fill="#e07b39">47%</text>
+    <text x="48" y="260" font-size="54" font-weight="700" fill="#3d4449" font-family="Roboto Slab, Georgia, serif">4% → 47%</text>
+  </g>
+  <rect x="0" y="412" width="800" height="8" fill="#2d709c"/>
+</svg>

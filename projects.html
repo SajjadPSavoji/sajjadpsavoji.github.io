@@ -49,37 +49,89 @@
 
 							<!-- Section -->
 								<section>
+									<header class="major"><h2>Recent research &amp; open source</h2></header>
 									<div class="posts">
 										<article>
-											<img src="images/Avtive_polyhedral_1.jpeg" alt="polyhedral scenes" width="100%" height="auto">
+											<a href="projects/minivlmdoceval/" class="image"><img src="projects/minivlmdoceval/img/fig_pareto.png" alt="Accuracy versus latency for six sub-1B vision-language models" width="100%" height="auto" loading="lazy"></a>
+											<h3><a href="projects/minivlmdoceval/">MiniVLMDocEval: Are Sub-1B VLMs Ready for Documents?</a></h3>
+											<p>A reproducible evaluation of six open vision&ndash;language models under one billion parameters on five document benchmarks. The diagnosis pins the best model's weakness on visual table lookup, not numbers, and a pre-registered improvement study reports its own failed fine-tune.</p>
+											<ul class="actions">
+												<li><a href="projects/minivlmdoceval/" class="button primary small">Project page</a></li>
+												<li><a href="https://github.com/SajjadPSavoji/MiniVLMDocEval" class="button small">Code</a></li>
+												<li><a href="https://medium.com/@sajjadpakdamansavoji/your-sign-to-build-on-sub-1b-vlms-2d2dcd08350a" class="button small">Blog</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="projects/awesome-wsp/" class="image"><img src="images/awesome-wsp-card.svg" alt="Awesome Weight-Space Programming" width="100%" height="auto" loading="lazy"></a>
+											<h3><a href="projects/awesome-wsp/">Awesome Weight-Space Programming</a></h3>
+											<p>A curated, daily-updated map of weight-space programming: language models that read, edit and write the weights of other neural networks directly. Over 600 papers, repositories and critiques, plus the eighty years of earlier work that edited weights under other names, with a live searchable explorer.</p>
+											<ul class="actions">
+												<li><a href="projects/awesome-wsp/" class="button primary small">Project page</a></li>
+												<li><a href="https://github.com/SajjadPSavoji/awesome-weight-space-programming" class="button small">GitHub</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="https://forall-labs.github.io/AutoPolish/" class="image"><img src="images/autopolish-overview.png" alt="AutoPolish overview" width="100%" height="auto" loading="lazy"></a>
+											<h3><a href="https://forall-labs.github.io/AutoPolish/">AutoPolish: Improving Visual Aesthetics with Synthetic Audience Critique</a></h3>
+											<p>A training-free editing loop: a synthetic audience of persona-conditioned Qwen2-VL critics steers FLUX.1 Kontext, and an edit is kept only when an independent aesthetic scorer rates it higher while DINOv2 similarity holds. Open-source Forall Labs project, co-first author with A. Fadaeinejad.</p>
+											<ul class="actions">
+												<li><a href="https://forall-labs.github.io/AutoPolish/" class="button primary small">Project website</a></li>
+												<li><a href="https://github.com/forall-labs/AutoPolish" class="button small">Code</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="https://forall-labs.github.io/CALVIN-MAX/" class="image"><img src="images/calvin-max-overview.png" alt="CALVIN-MAX overview" width="100%" height="auto" loading="lazy"></a>
+											<h3><a href="https://forall-labs.github.io/CALVIN-MAX/">CALVIN-MAX: When Does a Mid-Execution Change Hurt a Robot Policy?</a></h3>
+											<p>A 7,828-case benchmark of mid-execution changes on CALVIN's long-horizon chains, evaluating 10 released policies including VLAs such as &pi;<sub>0.5</sub>, X-VLA and OpenVLA-OFT. Every policy loses 4.4&ndash;9.9 points, and changes to what the robot sees cost less mid-motion but spill into the next instruction.</p>
+											<ul class="actions">
+												<li><a href="https://forall-labs.github.io/CALVIN-MAX/" class="button primary small">Project website</a></li>
+												<li><a href="https://github.com/forall-labs/CALVIN-MAX" class="button small">Code</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="https://forall-labs.github.io/OpenCaP/" class="image"><img src="images/opencap-card.svg" alt="OpenCaP: frame errors rise from 4% to 47% without high-level APIs" width="100%" height="auto" loading="lazy"></a>
+											<h3><a href="https://forall-labs.github.io/OpenCaP/">OpenCaP: How Open-Weight Models Fail at Writing Robot Code</a></h3>
+											<p>7,560 trials of 21 open-weight LLMs (Qwen3, Gemma 3; 0.6B&ndash;32B) writing Code-as-Policies robot programs. Each failure is repaired with a minimal edit verified in simulation and tagged in a six-family defect taxonomy. Removing high-level APIs raises frame errors from 4% to 47% and erases the advantage of larger models.</p>
+											<ul class="actions">
+												<li><a href="https://forall-labs.github.io/OpenCaP/" class="button primary small">Project website</a></li>
+												<li><a href="https://github.com/forall-labs/OpenCaP" class="button small">Code</a></li>
+											</ul>
+										</article>
+									</div>
+									<header class="major"><h2>Earlier course projects</h2></header>
+									<div class="posts">
+										<article>
+											<a href="projects/active-polyhedral-scene-matching/" class="image"><img src="images/Avtive_polyhedral_1.jpeg" alt="polyhedral scenes" width="100%" height="auto"></a>
 											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3>Active Polyhedral Scene Matching</h3>
+											<h3><a href="projects/active-polyhedral-scene-matching/">Active Polyhedral Scene Matching</a></h3>
 											<p align="justify">
 												Matching Polyhedrals only based on visual input in an active fashion is far from trivial. In short My solution consists of four main modules: observation, feature extraction, comparison, active motion policy. Observation module receives a camera position and object ID from the Active Policy module and presents an image of the object. Feature extraction takes in the observation and creates informative features from it. Comparison module takes in those features and decides whether the two objects are the same. Such decision is then propagated to the Active Motion Policy where the next observation position is created.
 											</p>
 											<ul class="actions">
+												<li><a href="projects/active-polyhedral-scene-matching/" class="button primary small">Project page</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Active-Polyhedral-Scene-Matching/blob/main/Polyhedral_Active_Recognition.pdf" class="button small">Doc</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Active-Polyhedral-Scene-Matching" class="button small"><span class="label">Code</span></a></li>
 											</ul>
 										</article>
 
 										<article>
-											<img src="images/DCGAN3.jpeg" alt="Deep Convolution GAN" width="100%" height="auto">
+											<a href="projects/dcgan-cifar10/" class="image"><img src="images/DCGAN3.jpeg" alt="Deep Convolution GAN" width="100%" height="auto"></a>
 											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3>Deep Convolution Generative Adversarial Network (DCGAN)</h3>
+											<h3><a href="projects/dcgan-cifar10/">Deep Convolution Generative Adversarial Network (DCGAN)</a></h3>
 											<p align="justify">
 												Supervised learning with convolutional networks (CNNs) has seen huge adoption in computer vision applications. Comparatively, unsupervised learning with CNNs has received less attention. In this project, adopting from the original paper, I implement a deep convolutional generative adversarial networks (DCGANs), that have certain architectural constraints, and demonstrate that they are a strong candidate for unsupervised learning. Training on CFAR10, I show convincing evidence that our deep convolutional adversarial pair learns a hierarchy of representations from object parts to scenes in both the generator and discriminator.
 											</p>
 											<ul class="actions">
+												<li><a href="projects/dcgan-cifar10/" class="button primary small">Project page</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Deep-Convolutional-GAN/blob/master/NNDL_miniproj3_report.pdf" class="button small">Doc</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Deep-Convolutional-GAN" class="button small"><span class="label">Code</span></a></li>
 											</ul>
 										</article>
 
 										<article>
-											<img src="images/CTBike.jpeg" alt="CTBIKE Image" width="100%" height="auto">
+											<a href="projects/citibike-nyc/" class="image"><img src="images/CTBike.jpeg" alt="CTBIKE Image" width="100%" height="auto"></a>
 											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3>New York CitiBike Trip Histories</h3>
+											<h3><a href="projects/citibike-nyc/">New York CitiBike Trip Histories</a></h3>
 											<p align="justify">
 
 												In recent years, Bike Sharing has
@@ -96,57 +148,61 @@
 												three titles: usage trends, common locations, expansion policy.
 											</p>
 											<ul class="actions">
+												<li><a href="projects/citibike-nyc/" class="button primary small">Project page</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/CitiBikeNYC/blob/main/DAV_Project%20Final%20Report.pdf" class="button small">Doc</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/CitiBikeNYC" class="button small"><span class="label">Code</span></a></li>
 											</ul>
 										</article>
 
 										<article>
-											<img src="images/VAE3.jpeg" alt="VAE Image" width="100%" height="auto">
+											<a href="projects/vae-mnist/" class="image"><img src="images/VAE3.jpeg" alt="VAE Image" width="100%" height="auto"></a>
 											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3>Variational AutoEncoder(VAE)</h3>
+											<h3><a href="projects/vae-mnist/">Variational AutoEncoder(VAE)</a></h3>
 											<p align="justify">
 												VAE is a way to perform efficient inference and learning in directed probabilistic models, in the presence of continuous latent variables with intractable posterior distributions, and large datasets? It introduces a stochastic variational inference and learning algorithm that scales to large datasets and, under some mild differentiability conditions, even works in the intractable case. This works contributions is two-fold. First, we show that a reparameterization of the variational lower bound yields a lower bound estimator that can be straightforwardly optimized using standard stochastic gradient methods.
 							
 											</p>
 											<ul class="actions">
+												<li><a href="projects/vae-mnist/" class="button primary small">Project page</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Variational-Auto-Encoder/blob/master/NNDL_miniproj3_report.pdf" class="button small">Doc</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Variational-Auto-Encoder" class="button small"><span class="label">Code</span></a></li>
 											</ul>
 										</article>
 
 										<article>
-											<img src="images/XLNet2.jpeg" alt="XLNet Banner" width="100%" height="auto">
+											<a href="projects/hate-speech-transformers/" class="image"><img src="images/XLNet2.jpeg" alt="XLNet Banner" width="100%" height="auto"></a>
 											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> XLNet for Hateful Twitter Capturing </h3>
+											<h3><a href="projects/hate-speech-transformers/">XLNet for Hateful Twitter Capturing</a></h3>
 											<p align="justify">
 												With accordance to general rules of social media platforms, some posts which include hate-speech are prohibited. This phenomenon is more important in twitter as users can stay unrecognized only sharing a line of words. In this project one of the most common Transformer models XLNet is used to capture such hate-full comments.
 
 											</p>
 											<ul class="actions">
+												<li><a href="projects/hate-speech-transformers/" class="button primary small">Project page</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Hate_Speech_Detection/blob/main/CA4_Report.docx.pdf" class="button small">Doc</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Hate_Speech_Detection/blob/main/README.md" class="button small"><span class="label">Code</span></a></li>
 											</ul>
 										</article>
 
 										<article>
-											<img src="images/BERT3.jpeg" alt="BERT Banner" width="100%" height="auto">
+											<a href="projects/hate-speech-transformers/" class="image"><img src="images/BERT3.jpeg" alt="BERT Banner" width="100%" height="auto"></a>
 											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Hate Speech Detection with Bidirectional Encoder Representations from Transformers(BERT) </h3>
+											<h3><a href="projects/hate-speech-transformers/">Hate Speech Detection with Bidirectional Encoder Representations from Transformers(BERT)</a></h3>
 											<p align="justify">
 												With accordance to general rules of social media platforms, some posts which include hate-speech are prohibited. This phenomenon is more important in twitter as users can stay unrecognized only sharing a line of words. In this project one of the most common Transformer models BERT is used to capture such hate-full comments.
 
 											</p>
 											<ul class="actions">
+												<li><a href="projects/hate-speech-transformers/" class="button primary small">Project page</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Hate_Speech_Detection/blob/main/CA4_Report.docx.pdf" class="button small">Doc</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Hate_Speech_Detection/blob/main/README.md" class="button small"><span class="label">Code</span></a></li>
 											</ul>
 										</article>
 
 										<article>
-											<img src="images/LSTMLM.webp" alt="LSTMLM Banner" width="100%" height="auto">
+											<a href="projects/lstm-language-model/" class="image"><img src="images/LSTMLM.webp" alt="LSTMLM Banner" width="100%" height="auto"></a>
 											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Sentence Generation with Long-Short-Term-Memory</h3>
+											<h3><a href="projects/lstm-language-model/">Sentence Generation with Long-Short-Term-Memory</a></h3>
 											<p align="justify">
 
 												In this project, a sentence generator is developed using LSTM modules.
@@ -156,108 +212,118 @@
 
 											</p>
 											<ul class="actions">
+												<li><a href="projects/lstm-language-model/" class="button primary small">Project page</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Language_Modelling_LSTM/blob/main/Report/report.pdf" class="button small">Doc</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Language_Modelling_LSTM" class="button small"><span class="label">Code</span></a></li>
 											</ul>
 										</article>
 
 										<article>
-											<img src="images/NNGram.jpeg" alt="Bgram Banner" width="100%" height="auto">
+											<a href="projects/ngram-language-models/" class="image"><img src="images/NNGram.jpeg" alt="Bgram Banner" width="100%" height="auto"></a>
 											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Word-level vs Char-level Ngrams Language Models</h3>
+											<h3><a href="projects/ngram-language-models/">Word-level vs Char-level Ngrams Language Models</a></h3>
 											<p align="justify">
 
 												N-Gram as the most intuitive computational language model can be implemented in the word-level or the char-leverl while having freedom-of-choice in terms of the N variable. In this project a fair comparision of uni-gram and bi-gram models in the word and charachter level. The result of the study, consistent with intuition, showed word-level LMs hold better results for generic tasks.
 											</p>
 											<ul class="actions">
+												<li><a href="projects/ngram-language-models/" class="button primary small">Project page</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Ngram_Language_Model/blob/main/Report.pdf" class="button small">Doc</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Ngram_Language_Model" class="button small"><span class="label">Code</span></a></li>
 											</ul>
 										</article>
 
 										<article>
-											<img src="images/ACGAN.png" alt="Bgram Banner" width="100%" height="auto">
+											<a href="projects/acgan/" class="image"><img src="images/ACGAN.png" alt="Bgram Banner" width="100%" height="auto"></a>
 											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Auxiliary Image Synthesis with AC-GAN </h3>
+											<h3><a href="projects/acgan/">Auxiliary Image Synthesis with AC-GAN</a></h3>
 											<p align="justify">
 												Synthesizing high resolution photorealistic images has been a long-standing challenge in machine learning. In this project we use a new methods for the improved training of generative adversarial networks (GANs) for image synthesis. Construct a variant of GANs employing label conditioning that results in 128x128 resolution image samples exhibiting global coherence.
 											</p>
 											<ul class="actions">
+												<li><a href="projects/acgan/" class="button primary small">Project page</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Auxiliary-Classifier-GAN/blob/master/NNDL_miniproj3_report.pdf" class="button small">Doc</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Auxiliary-Classifier-GAN" class="button small"><span class="label">Code</span></a></li>
 											</ul>
 										</article>
 
 										<article>
-											<img src="images/CGAN.png" alt="Bgram Banner" width="100%" height="auto">
+											<a href="projects/cgan/" class="image"><img src="images/CGAN.png" alt="Bgram Banner" width="100%" height="auto"></a>
 											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Conditional Generative Network (cGAN) for Image Synthesis</h3>
+											<h3><a href="projects/cgan/">Conditional Generative Network (cGAN) for Image Synthesis</a></h3>
 											<p align="justify">
 												Generative Adversarial Nets were introduced as a novel way to train generative models. In this project we use the conditional version of generative adversarial nets, which can be constructed by simply feeding the data, y, we wish to condition on to both the generator and discriminator. We show that this model can generate CFAR-10 digits conditioned on class labels.											</p>
 											<ul class="actions">
+												<li><a href="projects/cgan/" class="button primary small">Project page</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Conditional-GAN/blob/master/NNDL_miniproj3_report.pdf" class="button small">Doc</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Conditional-GAN" class="button small"><span class="label">Code</span></a></li>
 											</ul>
 										</article>
 
 										<article>
-											<img src="images/KmeansBanner.jpeg" alt="Kmeans Banner" width="100%" height="auto">
+											<a href="projects/kmeans-image-compression/" class="image"><img src="images/KmeansBanner.jpeg" alt="Kmeans Banner" width="100%" height="auto"></a>
 											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Color Compression with Unsupervised Spherical Clustering</h3>
+											<h3><a href="projects/kmeans-image-compression/">Color Compression with Unsupervised Spherical Clustering</a></h3>
 											<p align="justify">
 												The K-means algorithm can be used to compress the image. Unlike lossless compression, K-means uses lossy compression, so it is not possible to recover the original image from the compressed image. The larger the compression ratio, the larger the difference between the compressed image and the original image.
 											<ul class="actions">
+												<li><a href="projects/kmeans-image-compression/" class="button primary small">Project page</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Image-Compression-Kmeans/blob/master/hw8.pdf" class="button small">Doc</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Image-Compression-Kmeans" class="button small"><span class="label">Code</span></a></li>
 											</ul>
 										</article>
 										<article>
-											<img src="images/HMMBanner2.jpeg" alt="HMM Banner" width="100%" height="auto">
+											<a href="projects/hmm-sentiment/" class="image"><img src="images/HMMBanner2.jpeg" alt="HMM Banner" width="100%" height="auto"></a>
 											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Review Sentiment Analysis using Hidden Markov Models</h3>
+											<h3><a href="projects/hmm-sentiment/">Review Sentiment Analysis using Hidden Markov Models</a></h3>
 											<p align="justify">
 												In this work, we examine the performance of Hidden Markov Models (HMM) in the recognition of sentiments and opinions in text. User-generated content in social media contain very meaningful information about public sentiment and stance and require automated methods to analyze them extract knowledge from them. <ul class="actions">
+												<li><a href="projects/hmm-sentiment/" class="button primary small">Project page</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Twitter-Sentiment-Analysis-HMM/blob/master/README.md" class="button small">Doc</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/Twitter-Sentiment-Analysis-HMM" class="button small"><span class="label">Code</span></a></li>
 											</ul>
 										</article>
 										<article>
-											<img src="images/German.jpeg" alt="HMM Banner" width="100%" height="auto">
+											<a href="projects/gtsrb/" class="image"><img src="images/German.jpeg" alt="HMM Banner" width="100%" height="auto"></a>
 											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> GTSRB: a case study on network structures </h3>
+											<h3><a href="projects/gtsrb/">GTSRB: a case study on network structures</a></h3>
 											<p align="justify">
 												The German Traffic Sign Benchmark is a multi-class, single-image classification challenge held at the International Joint Conference on Neural Networks (IJCNN) 2011. In this case study we examine the effect of common components in CNNs(including normalization layers) on the traceability and generalization capabilities <ul class="actions">
+												<li><a href="projects/gtsrb/" class="button primary small">Project page</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/German-Traffic-Sign-Recognition-Benchmark/blob/master/README.md" class="button small">Doc</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/German-Traffic-Sign-Recognition-Benchmark" class="button small"><span class="label">Code</span></a></li>
 											</ul>
 										</article>
 										<article>
-											<img src="images/VAEFaces.png" alt="VAE Faces" width="100%" height="auto">
+											<a href="projects/vae-faces/" class="image"><img src="images/VAEFaces.png" alt="VAE Faces" width="100%" height="auto"></a>
 											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Representing Faces on Low Dimensional Manifolds </h3>
+											<h3><a href="projects/vae-faces/">Representing Faces on Low Dimensional Manifolds</a></h3>
 											<p align="justify">
 												VAE, as an extended version of Auto Encoders, can be used to model a low dimensional distribution of faces. given that, one will be able to regress, generate and compare faces accordingly. In this work I trained a VAE on the CelebA dataset. <ul class="actions">
+												<li><a href="projects/vae-faces/" class="button primary small">Project page</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/VAEFaces/blob/main/Report/icml2020_style.pdf" class="button small">Doc</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/VAEFaces" class="button small"><span class="label">Code</span></a></li>
 											</ul>
 										</article>
 										<article>
-											<img src="images/RealNVP.png" alt="RealNVP Faces" width="100%" height="auto">
+											<a href="projects/realnvp-faces/" class="image"><img src="images/RealNVP.png" alt="RealNVP Faces" width="100%" height="auto"></a>
 											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Real-Valued Non-Volume Preserving Transformations for Faces</h3>
+											<h3><a href="projects/realnvp-faces/">Real-Valued Non-Volume Preserving Transformations for Faces</a></h3>
 											<p align="justify">
 												Unsupervised learning of probabilistic models is a central yet challenging problem in machine learning. Specifically, designing models with tractable learning, sampling, inference and evaluation is crucial in solving this task. RealVNP extends the space of such models resulting in an unsupervised learning algorithm with exact log-likelihood computation, exact sampling, exact inference of latent variables, and an interpretable latent space. In this work such model is used to learn the underlying dist of faces. <ul class="actions">
+												<li><a href="projects/realnvp-faces/" class="button primary small">Project page</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/RealNVPFaces/blob/main/Report/icml2020_style.pdf" class="button small">Doc</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/RealNVPFaces/" class="button small"><span class="label">Code</span></a></li>
 											</ul>
 										</article>
 
 										<article>
-											<img src="images/DCGANFaces.png" alt="DCGAN Faces" width="100%" height="auto">
+											<a href="projects/dcgan-faces/" class="image"><img src="images/DCGANFaces.png" alt="DCGAN Faces" width="100%" height="auto"></a>
 											<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<h3> Fake-Face Recognition with Generative Neural Networks</h3>
+											<h3><a href="projects/dcgan-faces/">Fake-Face Recognition with Generative Neural Networks</a></h3>
 											<p align="justify">
 												Deep learning methodologies have been used to create applications that can cause threats to privacy, democracy and national security and could be used to further amplify malicious activities. One of those deep learning-powered applications in recent times is synthesized pictures of famous personalities. In this work, a common GAN is used not as a generative model, but as a discriminator which recognizes fake faces from real ones.<ul class="actions">
+												<li><a href="projects/dcgan-faces/" class="button primary small">Project page</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/DCGANFaces/tree/main/Report" class="button small">Doc</a></li>
 												<li><a href="https://github.com/SajjadPSavoji/DCGANFaces" class="button small"><span class="label">Code</span></a></li>
 											</ul>
